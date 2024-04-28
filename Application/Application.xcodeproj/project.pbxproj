@@ -70,8 +70,7 @@
 				54EA64BD2BDE0FD600812325 /* MainViewModel.swift */,
 				54EA64BF2BDE102F00812325 /* AddListView.swift */,
 				54EA64C12BDE105B00812325 /* AddListViewModel.swift */,
-				54EA64C32BDE1E6F00812325 /* ListItem.swift */,
-				54EA64C52BDE33E300812325 /* ModelData.swift */,
+				54EA64CA2BDE383700812325 /* Model */,
 				54EA64C92BDE37E600812325 /* Resources */,
 			);
 			path = Application;
@@ -91,6 +90,15 @@
 				54EA64C72BDE374A00812325 /* ListItemData.json */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		54EA64CA2BDE383700812325 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				54EA64C32BDE1E6F00812325 /* ListItem.swift */,
+				54EA64C52BDE33E300812325 /* ModelData.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

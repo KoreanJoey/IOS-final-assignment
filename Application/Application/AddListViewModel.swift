@@ -6,3 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
+class addListViewModel: ObservableObject{
+    @Published var productName: String = ""
+}

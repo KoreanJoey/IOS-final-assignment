@@ -6,12 +6,17 @@
 //
 
 import Foundation
+import SwiftUI
 
-struct ListItem {
+struct ListItem: Codable {
     var name: String
     var description: String
     var expiredDate: Date
     var quantity: Int
     
+    private var imageName: String
+    var image: Image {
+        Image(imageName)
+    }
     
 }

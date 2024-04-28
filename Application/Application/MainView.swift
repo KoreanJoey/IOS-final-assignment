@@ -24,6 +24,9 @@ struct MainView: View {
                     }
                     .padding()
                 }
+                ScrollView {
+                    
+                }
 
                 
             }

@@ -10,8 +10,10 @@ import SwiftUI
 @main
 struct ApplicationApp: App {
     var body: some Scene {
-        NavigationStack{
-            MainView()
+        WindowGroup {
+            NavigationStack {
+                MainView()
+            }
         }
     }
 }

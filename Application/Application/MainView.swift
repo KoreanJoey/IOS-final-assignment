@@ -10,7 +10,23 @@ import SwiftUI
 struct MainView: View {
     var body: some View {
         NavigationView{
-            
+            ZStack {
+                Color.cyan
+                    .ignoresSafeArea()
+                HStack {
+                    NavigationLink{
+                        AddListView()
+                    } label: {
+                        Image(systemName: "plus.app.fill")
+                            .font(.system(size: 50))
+                            .foregroundColor(.white)
+                            .position(x: 340,y: 10)
+                    }
+                    .padding()
+                }
+
+                
+            }
         }
     }
 }

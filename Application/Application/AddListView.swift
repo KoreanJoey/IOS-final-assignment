@@ -8,10 +8,27 @@
 import SwiftUI
 
 struct AddListView: View {
+    @StateObject var listModel = addListViewModel()
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-        Text("Hello")
+       
+        VStack{
+            Color.cyan
+            Label("Add New Object", systemImage: "")
+                .multilineTextAlignment(.center)
+                .font(.title)
+                .padding()
+            TextField("Product Name", text: $listModel.productName)
+                        .frame(width: 200, height: 50)
+                        .tint(.cyan)
+                        .padding([.leading, .trailing], 10)
+                        .textFieldStyle(.roundedBorder)
+                        
+            
+        }
+        .offset(y:-650)
+        .background(.cyan)
     }
+        
 }
 
 #Preview {

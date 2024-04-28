@@ -13,20 +13,25 @@ struct MainView: View {
             ZStack {
                 Color.cyan
                     .ignoresSafeArea()
-                HStack {
+                VStack {
                     NavigationLink{
                         AddListView()
                     } label: {
                         Image(systemName: "plus.app.fill")
                             .font(.system(size: 50))
                             .foregroundColor(.white)
-                            .position(x: 340,y: 10)
+                            
                     }
                     .padding()
+                    .position(x: 340,y: 10)
+                    ScrollView {
+                        Text("hi")
+                        Text("hi")
+                        Text("hi")
+                    }
+
                 }
-                ScrollView {
-                    
-                }
+                                
 
                 
             }

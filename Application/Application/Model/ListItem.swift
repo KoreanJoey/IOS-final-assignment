@@ -11,12 +11,14 @@ import SwiftUI
 struct ListItem: Codable {
     var name: String
     var description: String
-    var expiredDate: Date
+    var expiredDate: String
     var quantity: Int
     
     private var imageName: String
     var image: Image {
         Image(imageName)
     }
+    
+    
     
 }

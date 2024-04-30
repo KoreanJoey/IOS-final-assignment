@@ -19,10 +19,15 @@ struct ItemRow: View {
                 Text(item.name)
                 Text(item.expiredDate)
             }
+            Spacer()
         }
     }
 }
 
 #Preview {
-    ItemRow()
+    Group {
+        ItemRow(item: listitems[0])
+        ItemRow(item: listitems[1])
+    }
+    
 }

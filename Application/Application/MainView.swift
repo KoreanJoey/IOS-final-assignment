@@ -25,8 +25,11 @@ struct MainView: View {
                     .padding()
                     .position(x: 340,y: 10)
                     ScrollView {
-                        Text("hi")
-                        Text("hi")
+//                        List(listitems) {
+//                            listitem in label: {
+//                                ItemRow(item: listitem)
+//                            }
+//                        }
                         Text("hi")
                     }
 

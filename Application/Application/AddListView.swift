@@ -23,6 +23,7 @@ struct AddListView: View {
                         .padding([.leading, .trailing], 10)
                         .textFieldStyle(.roundedBorder)
                         
+            Text("Hello")
             
         }
         .offset(y:-650)

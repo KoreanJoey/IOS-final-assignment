@@ -25,6 +25,9 @@ struct MainView: View {
                     .padding()
                     .position(x: 340,y: 10)
                     ScrollView {
+                        //id: \.id -> suit for complicated data model.
+                        //there should be id in struct or class
+                        //id: \.self -> suit for simple data type(integer, string)
                         List(listitems, id:\.self) {
                             listitem in
                             ItemRow(item: listitem)

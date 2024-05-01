@@ -9,6 +9,7 @@ import Foundation
 import SwiftUI
 
 struct ListItem: Codable, Hashable {
+    let id: Int
     var name: String
     var description: String
     var expiredDate: String

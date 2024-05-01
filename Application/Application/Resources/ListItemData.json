@@ -1,5 +1,6 @@
 [
        {
+           "id": 1,
            "name": "Apple",
            "expiredDate": "30/4/2024",
            "quantity": 3,
@@ -7,6 +8,7 @@
            "imageName": "apple"
        },
        {
+           "id": 2,
            "name": "Coke",
            "expiredDate": "13/5/2024",
            "quantity": 3,
@@ -14,6 +16,7 @@
            "imageName": "coke"
        },
        {
+           "id": 3,
            "name": "Chocolate",
            "expiredDate": "13/5/2024",
            "quantity": 3,

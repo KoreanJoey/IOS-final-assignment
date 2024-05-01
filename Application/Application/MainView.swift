@@ -20,21 +20,21 @@ struct MainView: View {
                         Image(systemName: "plus.app.fill")
                             .font(.system(size: 50))
                             .foregroundColor(.white)
-                            
                     }
                     .padding()
                     .position(x: 340,y: 10)
-                    ScrollView {
+                    VStack {
                         //id: \.id -> suit for complicated data model.
                         //there should be id in struct or class
                         //id: \.self -> suit for simple data type(integer, string)
-                        List(listitems, id:\.self) {
-                            listitem in
-                            ItemRow(item: listitem)
+                        List(listitems, id:\.id) {
+                            listItem in
+                            ItemRow(item: listItem)
                             
                         }
-                        Text("hi")
                     }
+                    .padding()
+                    Spacer()
 
                 }
                                 

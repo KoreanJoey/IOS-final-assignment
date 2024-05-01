@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-struct ListItem: Codable {
+struct ListItem: Codable, Hashable {
     var name: String
     var description: String
     var expiredDate: String

@@ -30,3 +30,22 @@ func load<T: Decodable>(_ filename: String) -> T {
         fatalError("Couldn't parse \(filename) as \(T.self):\n\(error)")
     }
 }
+
+
+func save(_ item : ListItem, filename: String) {
+    var file: URL
+    do {
+        file = try FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true).appendingPathComponent(filename)
+    } catch {
+        fatalError("Couldn't read or create \(filename): \(error.localizedDescription)")
+    }
+    
+    let encoder = JSONEncoder()
+    encoder.outputFormatting = .prettyPrinted
+    
+    do {
+        try encoder.encode(item).write(to: file)
+    } catch {
+        print("Couldn't save new entry to \(filename), \(error.localizedDescription)")
+    }
+}

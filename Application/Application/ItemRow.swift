@@ -20,6 +20,10 @@ struct ItemRow: View {
                 Text(item.expiredDate)
             }
             Spacer()
+            VStack {
+                Text("\(item.quantity)")
+            }
+            .padding()
         }
     }
 }

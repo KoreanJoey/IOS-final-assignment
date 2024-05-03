@@ -14,32 +14,29 @@ struct MainView: View {
                 Color.cyan
                     .ignoresSafeArea()
                 VStack {
-                    NavigationLink{
-                        AddListView()
-                    } label: {
-                        Image(systemName: "plus.app.fill")
-                            .font(.system(size: 50))
-                            .foregroundColor(.white)
+                    HStack {
+                        Spacer()
+                        NavigationLink{
+                            AddListView()
+                        } label: {
+                            Image(systemName: "plus.app.fill")
+                                .font(.system(size: 50))
+                                .foregroundColor(.white)
+                        }
+                        .padding()
                     }
-                    .padding()
-                    .position(x: 340,y: 10)
                     VStack {
-                        //id: \.id -> suit for complicated data model.
-                        //there should be id in struct or class
-                        //id: \.self -> suit for simple data type(integer, string)
                         List(listitems, id:\.id) {
                             listItem in
                             ItemRow(item: listItem)
                             
                         }
                     }
+                    
                     .padding()
                     Spacer()
 
                 }
-                                
-
-                
             }
         }
     }

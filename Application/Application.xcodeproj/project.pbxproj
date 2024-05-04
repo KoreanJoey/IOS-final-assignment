@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		541068312BE67DEB003FB50F /* ItemDescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541068302BE67DEB003FB50F /* ItemDescriptionView.swift */; };
 		54A5B6CE2BD5E21000B1F728 /* ApplicationApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54A5B6CD2BD5E21000B1F728 /* ApplicationApp.swift */; };
 		54A5B6D22BD5E21100B1F728 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 54A5B6D12BD5E21100B1F728 /* Assets.xcassets */; };
 		54A5B6D52BD5E21100B1F728 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 54A5B6D42BD5E21100B1F728 /* Preview Assets.xcassets */; };
@@ -21,6 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		541068302BE67DEB003FB50F /* ItemDescriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDescriptionView.swift; sourceTree = "<group>"; };
 		54A5B6CA2BD5E21000B1F728 /* Application.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Application.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		54A5B6CD2BD5E21000B1F728 /* ApplicationApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationApp.swift; sourceTree = "<group>"; };
 		54A5B6D12BD5E21100B1F728 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -73,6 +75,7 @@
 				54BB69262BE08B5200B9FAF2 /* ItemRow.swift */,
 				54EA64BF2BDE102F00812325 /* AddListView.swift */,
 				54EA64C12BDE105B00812325 /* AddListViewModel.swift */,
+				541068302BE67DEB003FB50F /* ItemDescriptionView.swift */,
 				54EA64CA2BDE383700812325 /* Model */,
 				54EA64C92BDE37E600812325 /* Resources */,
 			);
@@ -177,6 +180,7 @@
 			files = (
 				54EA64C42BDE1E6F00812325 /* ListItem.swift in Sources */,
 				54EA64C22BDE105B00812325 /* AddListViewModel.swift in Sources */,
+				541068312BE67DEB003FB50F /* ItemDescriptionView.swift in Sources */,
 				54EA64BC2BDE0FBD00812325 /* MainView.swift in Sources */,
 				54A5B6CE2BD5E21000B1F728 /* ApplicationApp.swift in Sources */,
 				54EA64BE2BDE0FD600812325 /* MainViewModel.swift in Sources */,

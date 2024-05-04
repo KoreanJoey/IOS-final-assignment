@@ -25,11 +25,9 @@ struct MainView: View {
                         }
                         .padding()
                     }
-                        List(listitems, id:\.id) {
+                    List(listitems, id:\.id) {
                             listItem in
                             ItemRow(item: listItem)
-                            
-
                         }
                         .listStyle(PlainListStyle())
                         .padding()

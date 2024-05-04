@@ -48,10 +48,7 @@ struct AddListView: View {
                         .fill(Color.orange))
                 
             }
-        }
-        //.offset(y:-650)
-        //.background(.cyan)
-    }
+        }    }
         
 }
 

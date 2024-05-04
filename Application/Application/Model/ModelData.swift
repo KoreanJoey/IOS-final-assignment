@@ -31,7 +31,7 @@ func load<T: Decodable>(_ filename: String) -> T {
     }
 }
 
-
+//When user add item, then this method used to save item data into json file.
 func save(_ item : ListItem, filename: String) {
     var file: URL
     do {

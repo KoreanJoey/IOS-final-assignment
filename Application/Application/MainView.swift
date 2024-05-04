@@ -25,17 +25,14 @@ struct MainView: View {
                         }
                         .padding()
                     }
-                    VStack {
                         List(listitems, id:\.id) {
                             listItem in
                             ItemRow(item: listItem)
                             
-                        }
-                    }
-                    
-                    .padding()
-                    Spacer()
 
+                        }
+                        .listStyle(PlainListStyle())
+                        .padding()
                 }
             }
         }

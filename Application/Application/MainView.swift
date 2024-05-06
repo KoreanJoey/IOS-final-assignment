@@ -8,16 +8,18 @@
 import SwiftUI
 
 struct MainView: View {
+    
+    @State private var showAddListView: Bool = false
+    
     var body: some View {
-        NavigationView{
             ZStack {
                 Color.cyan
                     .ignoresSafeArea()
                 VStack {
                     HStack {
                         Spacer()
-                        NavigationLink{
-                            AddListView()
+                        Button{
+                            self.showAddListView.toggle()
                         } label: {
                             Image(systemName: "plus.app.fill")
                                 .font(.system(size: 50))
@@ -33,7 +35,9 @@ struct MainView: View {
                         .padding()
                 }
             }
-        }
+            .fullScreenCover(isPresented: $showAddListView, content: {
+                AddListView()
+            })
     }
 }
 

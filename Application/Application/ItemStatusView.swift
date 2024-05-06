@@ -35,9 +35,10 @@ struct ItemStatusView: View {
             .foregroundColor(.black)
             .frame(width: 100, height: 50)
             .background(RoundedRectangle(cornerRadius: 10)
-                .fill(Color.red))
+                .fill(Color("BackButtonColor")))
             }
         Text("Evan")
+        Text("Joey")
     }
 }
 

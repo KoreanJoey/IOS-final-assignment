@@ -9,24 +9,41 @@ import SwiftUI
 
 struct AddListView: View {
     @StateObject var listModel = addListViewModel()
+    
     var body: some View {
        
         ZStack {
             Color.cyan
                 .ignoresSafeArea()
             VStack{
-                Label("Add New Object", systemImage: "")
+                Label("Add New item", systemImage: "")
                     .multilineTextAlignment(.center)
                     .font(.title)
+                    .background(RoundedRectangle(cornerRadius: 10)
+                        .fill(Color.green))
                     .padding()
-                Text("Food Name")
-                    .font(.title)
-                TextField("Product Name", text: $listModel.productName)
-                            .frame(width: 200, height: 50)
+                
+                TextField("Enter name of item here", text: $listModel.productName)
+                            .frame(width: 300, height: 40)
+                            .padding([.leading, .trailing], 10)
+                            .background(RoundedRectangle(cornerRadius: 10)
+                                .fill(Color.green))
+                           
+                
+                TextField("Pick expiry date here", text: $listModel.productName)
+                            .frame(width: 300, height: 40)
                             .tint(.cyan)
                             .padding([.leading, .trailing], 10)
-                            .textFieldStyle(.roundedBorder)
-                            
+                            .background(RoundedRectangle(cornerRadius: 10)
+                                .fill(Color.green))
+                
+                TextField("Enter quentity of item here", text: $listModel.productName)
+                            .frame(width: 300, height: 40)
+                            .tint(.cyan)
+                            .padding([.leading, .trailing], 10)
+                            .background(RoundedRectangle(cornerRadius: 10)
+                                .fill(Color.green))
+                
                 Text("Expiry's on")
                 Button("Custom Date"){}
                 Button("Expire on 1 day"){}
@@ -37,18 +54,27 @@ struct AddListView: View {
                 Button("1 day before expire"){}
                 Button("4 days before expire"){}
                 
-                
-                Button("Save") {
+                HStack{
+                    Button("Back") {
+                        
+                    }
+                    .font(.title)
+                    .foregroundColor(.black)
+                    .frame(width: 100, height: 50)
+                    .background(RoundedRectangle(cornerRadius: 10)
+                        .fill(Color.red))
                     
+                    Button("Save"){
+                    }
+                    .font(.title)
+                    .foregroundColor(.black)
+                    .frame(width: 100, height: 50)
+                    .background(RoundedRectangle(cornerRadius: 10)
+                        .fill(Color.green))
+                    }
                 }
-                .font(.title)
-                .foregroundColor(.black)
-                .frame(width: 100, height: 50)
-                .background(RoundedRectangle(cornerRadius: 10)
-                        .fill(Color.orange))
-                
             }
-        }    }
+        }
         
 }
 

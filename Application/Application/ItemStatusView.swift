@@ -37,6 +37,7 @@ struct ItemStatusView: View {
             .background(RoundedRectangle(cornerRadius: 10)
                 .fill(Color.red))
             }
+        Text("Evan")
     }
 }
 

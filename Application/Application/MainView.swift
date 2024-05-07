@@ -36,7 +36,7 @@ struct MainView: View {
                 }
             }
             .fullScreenCover(isPresented: $showAddListView, content: {
-                AddListView()
+                AddListView(item: listitems[0])
             })
     }
 }

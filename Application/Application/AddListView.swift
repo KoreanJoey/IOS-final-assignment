@@ -13,6 +13,7 @@ struct AddListView: View {
     @State private var selectedDate: Date = Date()
     @State private var showMainView: Bool = false
     @State private var quantity: String = "0"
+    @State var item: ListItem 
     var dateRange: ClosedRange<Date> {
         let min = Calendar.current.date(byAdding: .year, value: -1, to: selectedDate)!
         let max = Calendar.current.date(byAdding: .year, value: 1, to: selectedDate)!
@@ -33,7 +34,7 @@ struct AddListView: View {
                         .fill(Color.green))
                     .padding()
                 
-                TextField("Enter name of item here", text: $listModel.productName)
+                TextField("Enter name of item here", text: $item.name)
                             .frame(width: 300, height: 40)
                             .padding([.leading, .trailing], 10)
                             .background(RoundedRectangle(cornerRadius: 10)
@@ -50,7 +51,7 @@ struct AddListView: View {
              
                 
                 
-                TextField("Enter quentity of item here", text: $quantity)
+                TextField("Enter quentity of item here", value: $item.quantity, formatter: NumberFormatter())
                     .keyboardType(.numberPad)
                     .onReceive(Just(quantity)){ newValue in
                         let filtered = newValue.filter {"0123456789".contains($0)}
@@ -62,16 +63,29 @@ struct AddListView: View {
                             .padding([.leading, .trailing], 10)
                             .background(RoundedRectangle(cornerRadius: 10)
                                 .fill(Color.green))
+                            Spacer()
                 
-                Text("Expiry's on")
-                Button("Custom Date"){}
-                Button("Expire on 1 day"){}
-                Button("Expire on 4 days"){}
-                Button("Expire on 7 days"){}
-                
-                Text("Notify me on...")
-                Button("1 day before expire"){}
-                Button("4 days before expire"){}
+                Label("Notify me on...", systemImage: "")
+                    .multilineTextAlignment(.center)
+                    .font(.title)
+                    .background(RoundedRectangle(cornerRadius: 10)
+                        .fill(Color.green))
+                    .padding()
+                    
+                HStack{
+                    Button("1 day before expire"){}
+                        .font(.title)
+                        .foregroundColor(.black)
+                        .background(RoundedRectangle(cornerRadius: 10)
+                            .fill(Color.teal))
+                    Button("4 days before expire"){}
+                        .font(.title)
+                        .foregroundColor(.black)
+                        .background(RoundedRectangle(cornerRadius: 10)
+                            .fill(Color.teal))
+                    
+                }
+                Spacer()
                 
                 HStack{
                     Button("Back") {
@@ -81,16 +95,16 @@ struct AddListView: View {
                     .foregroundColor(.black)
                     .frame(width: 100, height: 50)
                     .background(RoundedRectangle(cornerRadius: 10)
-                        .fill(Color.red))
+                        .fill(Color.backButton))
                     
                     Button("Save"){
-                      
+                        save(item, filename: "ListItemData.json")
                     }
                     .font(.title)
                     .foregroundColor(.black)
                     .frame(width: 100, height: 50)
                     .background(RoundedRectangle(cornerRadius: 10)
-                        .fill(Color.green))
+                        .fill(Color.saveButton))
                     }
                 }
             }
@@ -103,5 +117,5 @@ struct AddListView: View {
 
 
 #Preview {
-    AddListView()
+    AddListView(item: listitems[0])
 }

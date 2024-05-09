@@ -9,7 +9,10 @@ import SwiftUI
 
 struct MainView: View {
     
+    @State var currentId: Int = 1
+    
     @State private var showAddListView: Bool = false
+    @State private var showItemStatusView: Bool = false
     
     var body: some View {
             ZStack {
@@ -28,16 +31,26 @@ struct MainView: View {
                         .padding()
                     }
                     List(listitems, id:\.id) {
-                            listItem in
+                        listItem in
+                        Button{
+//                            currentId = listItem.id
+//                            let item = listitems.first(where: {$0.id == listItem.id })
+                            self.showItemStatusView.toggle()
+                        } label: {
                             ItemRow(item: listItem)
                         }
-                        .listStyle(PlainListStyle())
-                        .padding()
+                    }
+                    .listStyle(PlainListStyle())
+                    .padding()
                 }
             }
             .fullScreenCover(isPresented: $showAddListView, content: {
                 AddListView(item: listitems[0])
             })
+        
+            .fullScreenCover(isPresented: $showItemStatusView, content: {
+                            ItemStatusView(item: listitems[currentId])
+                        })
     }
 }
 

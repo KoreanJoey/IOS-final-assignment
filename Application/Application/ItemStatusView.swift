@@ -10,6 +10,7 @@ import SwiftUI
 struct ItemStatusView: View {
     var item : ListItem
     
+    @State private var showMainView: Bool = false
     var body: some View {
         VStack {
             Text(item.name)
@@ -29,7 +30,7 @@ struct ItemStatusView: View {
         
         HStack{
             Button("Back") {
-                
+                self.showMainView.toggle()
             }
             .font(.title)
             .foregroundColor(.black)
@@ -37,6 +38,10 @@ struct ItemStatusView: View {
             .background(RoundedRectangle(cornerRadius: 10)
                 .fill(Color("BackButtonColor")))
             }
+        
+        .fullScreenCover(isPresented: $showMainView, content: {
+                  MainView()
+              })
     }
 }
 

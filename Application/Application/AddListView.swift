@@ -98,6 +98,12 @@ struct AddListView: View {
                         .fill(Color.backButton))
                     
                     Button("Save"){
+                       
+                        let dateFormatter = DateFormatter()
+                        dateFormatter.dateFormat = "YY/MM/DD"
+                        item.expiredDate = dateFormatter.string(from: selectedDate)
+                        item.quantity = Int(quantity)!
+                        
                         save(item, filename: "ListItemData.json")
                     }
                     .font(.title)

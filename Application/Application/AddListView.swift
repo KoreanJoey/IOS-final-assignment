@@ -51,7 +51,7 @@ struct AddListView: View {
              
                 
                 
-                TextField("Enter quentity of item here", value: $item.quantity, formatter: NumberFormatter())
+                TextField("Enter quentity of item here", text: $quantity)
                     .keyboardType(.numberPad)
                     .onReceive(Just(quantity)){ newValue in
                         let filtered = newValue.filter {"0123456789".contains($0)}

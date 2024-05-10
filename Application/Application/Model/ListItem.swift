@@ -8,10 +8,9 @@
 import Foundation
 import SwiftUI
 
-struct ListItem: Codable, Hashable {
-    let id: Int
+struct ListItem: Codable, Hashable, Identifiable {
+    let id = UUID()
     var name: String
-    var description: String
     var expiredDate: String
     var quantity: Int
     

@@ -10,10 +10,12 @@ import Combine
 
 struct AddListView: View {
     @StateObject var listModel = addListViewModel()
-    @State private var selectedDate: Date = Date()
-    @State private var showMainView: Bool = false
-    @State private var quantity: String = "0"
-    @State var item: ListItem 
+    @State var selectedDate: Date = Date()
+    @State var showMainView: Bool = false
+    @State var quantity: String = ""
+    @State var name: String = ""
+    @State var item: ListItem
+    
     var dateRange: ClosedRange<Date> {
         let min = Calendar.current.date(byAdding: .year, value: -1, to: selectedDate)!
         let max = Calendar.current.date(byAdding: .year, value: 1, to: selectedDate)!
@@ -51,9 +53,9 @@ struct AddListView: View {
              
                 
                 
-                TextField("Enter quentity of item here", text: $quantity)
+                TextField("Enter quentity of item here", value: $item.quantity, formatter: NumberFormatter())
                     .keyboardType(.numberPad)
-                    .onReceive(Just(quantity)){ newValue in
+                    .onReceive(Just(String(item.quantity))){ newValue in
                         let filtered = newValue.filter {"0123456789".contains($0)}
                             if filtered != newValue{
                                 self.quantity = filtered
@@ -102,7 +104,7 @@ struct AddListView: View {
                         let dateFormatter = DateFormatter()
                         dateFormatter.dateFormat = "YY/MM/DD"
                         item.expiredDate = dateFormatter.string(from: selectedDate)
-                        item.quantity = Int(quantity)!
+                        
                         
                         save(item, filename: "ListItemData.json")
                     }

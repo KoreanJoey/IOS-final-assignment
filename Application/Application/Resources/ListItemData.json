@@ -4,7 +4,6 @@
            "name": "Apple",
            "expiredDate": "30/4/2024",
            "quantity": 3,
-           "description": "The apple that bonk Issac Newton's head",
            "imageName": "apple"
        },
        {
@@ -12,7 +11,6 @@
            "name": "Coke",
            "expiredDate": "13/5/2024",
            "quantity": 3,
-           "description": "Drinks got from a friend",
            "imageName": "coke"
        },
        {
@@ -20,7 +18,6 @@
            "name": "Chocolate",
            "expiredDate": "13/5/2024",
            "quantity": 3,
-           "description": "A godiva chocolate",
            "imageName": "chocolate"
        },
       

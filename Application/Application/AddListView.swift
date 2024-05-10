@@ -14,7 +14,7 @@ struct AddListView: View {
     @State var showMainView: Bool = false
     @State var quantity: String = ""
     @State var name: String = ""
-    @State var item: ListItem
+    @State var newItem: ListItem
     
     var dateRange: ClosedRange<Date> {
         let min = Calendar.current.date(byAdding: .year, value: -1, to: selectedDate)!
@@ -36,11 +36,12 @@ struct AddListView: View {
                         .fill(Color.green))
                     .padding()
                 
-                TextField("Enter name of item here", text: $item.name)
+                TextField("Enter name of item here", text: $newItem.name)
                             .frame(width: 300, height: 40)
                             .padding([.leading, .trailing], 10)
                             .background(RoundedRectangle(cornerRadius: 10)
                                 .fill(Color.green))
+                
                 VStack{DatePicker(selection: $selectedDate, in: dateRange, displayedComponents: .date){
                     Text("Expirary date")
                         .frame(width: 120, height: 40)
@@ -53,9 +54,9 @@ struct AddListView: View {
              
                 
                 
-                TextField("Enter quentity of item here", value: $item.quantity, formatter: NumberFormatter())
+                TextField("Enter quentity of item here", value: $newItem.quantity, formatter: NumberFormatter())
                     .keyboardType(.numberPad)
-                    .onReceive(Just(String(item.quantity))){ newValue in
+                    .onReceive(Just(String(newItem.quantity))){ newValue in
                         let filtered = newValue.filter {"0123456789".contains($0)}
                             if filtered != newValue{
                                 self.quantity = filtered
@@ -100,13 +101,10 @@ struct AddListView: View {
                         .fill(Color.backButton))
                     
                     Button("Save"){
-                       
                         let dateFormatter = DateFormatter()
                         dateFormatter.dateFormat = "YY/MM/DD"
-                        item.expiredDate = dateFormatter.string(from: selectedDate)
-                        
-                        
-                        save(item, filename:    "ListItemData.json")
+                        newItem.expiredDate = dateFormatter.string(from: selectedDate)
+                        save(newItem, filename:"ListItemData.json")
                     }
                     .font(.title)
                     .foregroundColor(.black)
@@ -125,5 +123,5 @@ struct AddListView: View {
 
 
 #Preview {
-    AddListView(item: listitems[0])
+    AddListView(newItem: listitems[0])
 }

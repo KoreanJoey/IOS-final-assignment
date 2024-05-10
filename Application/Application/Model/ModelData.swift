@@ -36,6 +36,7 @@ func save(_ item : ListItem, filename: String) {
     var file: URL
     do {
         file = try FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true).appendingPathComponent(filename)
+        print("File path: \(file.path)")
     } catch {
         fatalError("Couldn't read or create \(filename): \(error.localizedDescription)")
     }
@@ -44,7 +45,10 @@ func save(_ item : ListItem, filename: String) {
     encoder.outputFormatting = .prettyPrinted
     
     do {
-        try encoder.encode(item).write(to: file)
+        let data = try encoder.encode(item)
+        try data.write(to: file, options: [.atomicWrite])
+        print("Data was successfully saved to \(file.path)")
+        //try encoder.encode(item).write(to: file)
     } catch {
         print("Couldn't save new entry to \(filename), \(error.localizedDescription)")
     }

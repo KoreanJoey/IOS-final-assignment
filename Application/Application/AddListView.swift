@@ -13,7 +13,6 @@ struct AddListView: View {
     @State var selectedDate: Date = Date()
     @State var showMainView: Bool = false
     @State var quantity: String = ""
-    @State var name: String = ""
     @State var newItem: ListItem
     
     var dateRange: ClosedRange<Date> {
@@ -50,6 +49,7 @@ struct AddListView: View {
                 .fill(Color.green))
                 .padding()
                 }
+                
                 .padding()
              
                 
@@ -101,9 +101,11 @@ struct AddListView: View {
                         .fill(Color.backButton))
                     
                     Button("Save"){
-                        let dateFormatter = DateFormatter()
-                        dateFormatter.dateFormat = "YY/MM/DD"
-                        newItem.expiredDate = dateFormatter.string(from: selectedDate)
+                            let dateFormatter = DateFormatter()
+                            dateFormatter.dateFormat = "dd/MM/yyyy"
+                            let selectedDate2 = dateFormatter.string(from: selectedDate)
+                            newItem.expiredDate = selectedDate2
+                        
                         save(newItem, filename:"ListItemData.json")
                     }
                     .font(.title)

@@ -22,6 +22,7 @@ struct AddListView: View {
         return min...max
     }
     
+    
     var body: some View {
        
         ZStack {
@@ -44,6 +45,13 @@ struct AddListView: View {
                 VStack{DatePicker(selection: $selectedDate, in: dateRange, displayedComponents: .date){
                     Text("Expirary date")
                         .frame(width: 120, height: 40)
+                    Button("Save date"){
+                        let dateFormatter = DateFormatter()
+                        dateFormatter.dateFormat = "dd/MM/yyyy"
+                        let selectedDate2 = dateFormatter.string(from: selectedDate)
+                        newItem.expiredDate = selectedDate2}
+                    .background(Color.clear)
+                    .frame(width: 100, height: 40)
                 }
                 .background(RoundedRectangle(cornerRadius: 10)
                 .fill(Color.green))
@@ -101,11 +109,6 @@ struct AddListView: View {
                         .fill(Color.backButton))
                     
                     Button("Save"){
-                            let dateFormatter = DateFormatter()
-                            dateFormatter.dateFormat = "dd/MM/yyyy"
-                            let selectedDate2 = dateFormatter.string(from: selectedDate)
-                            newItem.expiredDate = selectedDate2
-                        
                         save(newItem, filename:"ListItemData.json")
                     }
                     .font(.title)

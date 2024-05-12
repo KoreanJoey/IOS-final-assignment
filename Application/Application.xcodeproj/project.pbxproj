@@ -7,11 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		28EFC96C2BF0B003003E5D8A /* DateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28EFC96B2BF0B003003E5D8A /* DateModel.swift */; };
 		541068312BE67DEB003FB50F /* ItemStatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541068302BE67DEB003FB50F /* ItemStatusView.swift */; };
 		542E73B22BE9C902001BB72E /* RecipeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 542E73B12BE9C902001BB72E /* RecipeManager.swift */; };
 		54A5B6CE2BD5E21000B1F728 /* ApplicationApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54A5B6CD2BD5E21000B1F728 /* ApplicationApp.swift */; };
 		54A5B6D22BD5E21100B1F728 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 54A5B6D12BD5E21100B1F728 /* Assets.xcassets */; };
-		54A5B6D52BD5E21100B1F728 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 54A5B6D42BD5E21100B1F728 /* Preview Assets.xcassets */; };
 		54BB69272BE08B5200B9FAF2 /* ItemRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54BB69262BE08B5200B9FAF2 /* ItemRow.swift */; };
 		54EA64BC2BDE0FBD00812325 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54EA64BB2BDE0FBD00812325 /* MainView.swift */; };
 		54EA64BE2BDE0FD600812325 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54EA64BD2BDE0FD600812325 /* MainViewModel.swift */; };
@@ -23,12 +23,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		28EFC96B2BF0B003003E5D8A /* DateModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateModel.swift; sourceTree = "<group>"; };
 		541068302BE67DEB003FB50F /* ItemStatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemStatusView.swift; sourceTree = "<group>"; };
 		542E73B12BE9C902001BB72E /* RecipeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeManager.swift; sourceTree = "<group>"; };
 		54A5B6CA2BD5E21000B1F728 /* Application.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Application.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		54A5B6CD2BD5E21000B1F728 /* ApplicationApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationApp.swift; sourceTree = "<group>"; };
 		54A5B6D12BD5E21100B1F728 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		54A5B6D42BD5E21100B1F728 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		54BB69262BE08B5200B9FAF2 /* ItemRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemRow.swift; sourceTree = "<group>"; };
 		54EA64BB2BDE0FBD00812325 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		54EA64BD2BDE0FD600812325 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
@@ -79,6 +79,7 @@
 				54EA64C12BDE105B00812325 /* AddListViewModel.swift */,
 				541068302BE67DEB003FB50F /* ItemStatusView.swift */,
 				542E73B12BE9C902001BB72E /* RecipeManager.swift */,
+				28EFC96B2BF0B003003E5D8A /* DateModel.swift */,
 				54EA64CA2BDE383700812325 /* Model */,
 				54EA64C92BDE37E600812325 /* Resources */,
 			);
@@ -88,7 +89,6 @@
 		54A5B6D32BD5E21100B1F728 /* Preview Content */ = {
 			isa = PBXGroup;
 			children = (
-				54A5B6D42BD5E21100B1F728 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
 			sourceTree = "<group>";
@@ -168,7 +168,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				54A5B6D52BD5E21100B1F728 /* Preview Assets.xcassets in Resources */,
 				54EA64C82BDE374A00812325 /* ListItemData.json in Resources */,
 				54A5B6D22BD5E21100B1F728 /* Assets.xcassets in Resources */,
 			);
@@ -188,6 +187,7 @@
 				54EA64BC2BDE0FBD00812325 /* MainView.swift in Sources */,
 				54A5B6CE2BD5E21000B1F728 /* ApplicationApp.swift in Sources */,
 				54EA64BE2BDE0FD600812325 /* MainViewModel.swift in Sources */,
+				28EFC96C2BF0B003003E5D8A /* DateModel.swift in Sources */,
 				54EA64C02BDE102F00812325 /* AddListView.swift in Sources */,
 				54EA64C62BDE33E300812325 /* ModelData.swift in Sources */,
 				54BB69272BE08B5200B9FAF2 /* ItemRow.swift in Sources */,

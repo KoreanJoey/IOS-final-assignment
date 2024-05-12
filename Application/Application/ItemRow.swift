@@ -11,6 +11,7 @@ struct ItemRow: View {
     var item : ListItem
     
     var body: some View {
+        
         ZStack{
             Color.white
             HStack {
@@ -21,6 +22,12 @@ struct ItemRow: View {
                 VStack {
                     Text(item.name)
                     Text(item.expiredDate)
+//                    Text(DateModel.getTodayDateString())
+                    if let daysRemaining = DateModel.calculateRemainingDay(expireDateString: item.expiredDate) {
+                        Text("\(daysRemaining)")
+                    } else {
+                        Text("invalid date format")
+                    }
                 }
                 Spacer()
                 VStack {

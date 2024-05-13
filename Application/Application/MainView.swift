@@ -15,6 +15,9 @@ struct MainView: View {
     @State private var showItemStatusView: Bool = false
     
     var body: some View {
+        GeometryReader { geometry in
+            let screenWidth = geometry.size.width
+            let screenHeight = geometry.size.height
             ZStack {
                 Color.gray
                 VStack() {
@@ -42,22 +45,21 @@ struct MainView: View {
                                 .cornerRadius(12)
                         }
                     }
-                    .padding(.horizontal, 40.0)
-                    .frame(height: 90.0)
+                    .frame(width: screenWidth, height: 90.0)
                     .background(.white)
                     
-//                    List(listitems, id:\.id) {
-//                        listItem in
-//                        Button{
-//                            currentId = listItem.id
-//                            let item = listitems.first(where: {$0.id == listItem.id })
-//                            self.showItemStatusView.toggle()
-//                        } label: {
-//                            ItemRow(item: listItem)
-//                        }
-//                    }
-//                    .listStyle(PlainListStyle())
-//                    .padding()
+                    //                    List(listitems, id:\.id) {
+                    //                        listItem in
+                    //                        Button{
+                    //                            currentId = listItem.id
+                    //                            let item = listitems.first(where: {$0.id == listItem.id })
+                    //                            self.showItemStatusView.toggle()
+                    //                        } label: {
+                    //                            ItemRow(item: listItem)
+                    //                        }
+                    //                    }
+                    //                    .listStyle(PlainListStyle())
+                    //                    .padding()
                     List {
                         ForEach(listitems, id: \.id) { listItem in
                             Button{
@@ -65,24 +67,28 @@ struct MainView: View {
                             } label: {
                                 ItemRow(item: listItem)
                             }
+                            
                         }
                         .listRowInsets(EdgeInsets())
+                        .listStyle(PlainListStyle())
                     }
                     .listRowSpacing(15)
                     .scrollContentBackground(.hidden)
                     .background(LinearGradient(gradient: Gradient(colors: [Color.defaultBackground, Color.white]), startPoint: .top, endPoint: .bottom))
-
+                    .frame(width: screenWidth)
+                    .ignoresSafeArea()
                 }
-                
                 
             }
             .fullScreenCover(isPresented: $showAddListView, content: {
                 AddListView(newItem: listitems[0])
             })
-        
+            
             .fullScreenCover(isPresented: $showItemStatusView, content: {
-                            ItemStatusView(item: listitems[currentId])
-                        })
+                ItemStatusView(item: listitems[currentId])
+            })
+        }
+        
     }
 }
 

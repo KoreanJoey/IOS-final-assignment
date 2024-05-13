@@ -21,12 +21,15 @@ struct ItemRow: View {
                     .cornerRadius(/*@START_MENU_TOKEN@*/10.0/*@END_MENU_TOKEN@*/)
                 VStack {
                     Text(item.name)
+                        .foregroundColor(Color.black)
                     Text("Best before: \(item.expiredDate)")
+                        .foregroundColor(Color.black)
                 }
                 Spacer()
                 ZStack {
                     Color.white
                     Text("\(item.quantity)")
+                        .foregroundColor(Color.black)
                 }
                 .frame(width: 45.0, height: 45.0)
                 .cornerRadius(10.0)
@@ -51,11 +54,11 @@ struct ItemRow: View {
                 }
             }
             .padding(/*@START_MENU_TOKEN@*/.all, 10.0/*@END_MENU_TOKEN@*/)
-            .frame(width: 370.0, height: 65.0)
+            .frame(width: 345.0, height: 65.0)
             .background(Color.rowBackground)
             .cornerRadius(7.0)
         }
-            .frame(width: 375.0, height: 75.0)
+            .frame(width: 355.0, height: 75.0)
             .cornerRadius(10.0)
             
     }

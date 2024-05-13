@@ -16,10 +16,9 @@ struct MainView: View {
     
     var body: some View {
             ZStack {
-                Color.green
-                    .ignoresSafeArea()
-                VStack {
-                    HStack {
+                Color.gray
+                VStack() {
+                    HStack() {
                         ZStack{
                             Rectangle()
                                 .foregroundColor(Color.titleBackground)
@@ -32,11 +31,6 @@ struct MainView: View {
                         .frame(width: 290.0, height: 45.0)
                         .background(.gray)
                         .cornerRadius(12)
-
-                        Spacer()
-                        ZStack{
-                            
-                        }
                         Button{
                             self.showAddListView.toggle()
                         } label: {
@@ -47,25 +41,40 @@ struct MainView: View {
                                 .background(Color.defaultButton)
                                 .cornerRadius(12)
                         }
-                        .padding()
                     }
-                    .padding(.leading, 20.0)
+                    .padding(.horizontal, 40.0)
                     .frame(height: 90.0)
                     .background(.white)
                     
-                    List(listitems, id:\.id) {
-                        listItem in
-                        Button{
+//                    List(listitems, id:\.id) {
+//                        listItem in
+//                        Button{
 //                            currentId = listItem.id
 //                            let item = listitems.first(where: {$0.id == listItem.id })
-                            self.showItemStatusView.toggle()
-                        } label: {
-                            ItemRow(item: listItem)
+//                            self.showItemStatusView.toggle()
+//                        } label: {
+//                            ItemRow(item: listItem)
+//                        }
+//                    }
+//                    .listStyle(PlainListStyle())
+//                    .padding()
+                    List {
+                        ForEach(listitems, id: \.id) { listItem in
+                            Button{
+                                self.showItemStatusView.toggle()
+                            } label: {
+                                ItemRow(item: listItem)
+                            }
                         }
+                        .listRowInsets(EdgeInsets())
                     }
-                    .listStyle(PlainListStyle())
-                    .padding()
+                    .listRowSpacing(15)
+                    .scrollContentBackground(.hidden)
+                    .background(LinearGradient(gradient: Gradient(colors: [Color.defaultBackground, Color.white]), startPoint: .top, endPoint: .bottom))
+
                 }
+                
+                
             }
             .fullScreenCover(isPresented: $showAddListView, content: {
                 AddListView(newItem: listitems[0])

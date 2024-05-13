@@ -55,7 +55,7 @@ struct ItemRow: View {
             .background(Color.rowBackground)
             .cornerRadius(7.0)
         }
-            .frame(width: 380.0, height: 75.0)
+            .frame(width: 375.0, height: 75.0)
             .cornerRadius(10.0)
             
     }

@@ -16,10 +16,23 @@ struct MainView: View {
     
     var body: some View {
             ZStack {
-                Color.cyan
+                Color.green
                     .ignoresSafeArea()
                 VStack {
                     HStack {
+                        ZStack{
+                            Rectangle()
+                                .foregroundColor(Color.titleBackground)
+                                .frame(width: 280.0, height: 35.0)
+                                .cornerRadius(7)
+                            Text("Today: \(DateModel.getTodayString())")
+                                .foregroundColor(Color.black)
+                                .multilineTextAlignment(.center)
+                        }
+                        .frame(width: 290.0, height: 45.0)
+                        .background(.gray)
+                        .cornerRadius(12)
+
                         Spacer()
                         ZStack{
                             
@@ -28,11 +41,18 @@ struct MainView: View {
                             self.showAddListView.toggle()
                         } label: {
                             Image(systemName: "plus.app.fill")
-                                .font(.system(size: 50))
-                                .foregroundColor(.white)
+                                .frame(width: 45.0, height: 45.0)
+                                .font(.system(size: 42))
+                                .foregroundColor(Color.addButtonBackground)
+                                .background(Color.defaultButton)
+                                .cornerRadius(12)
                         }
                         .padding()
                     }
+                    .padding(.leading, 20.0)
+                    .frame(height: 90.0)
+                    .background(.white)
+                    
                     List(listitems, id:\.id) {
                         listItem in
                         Button{

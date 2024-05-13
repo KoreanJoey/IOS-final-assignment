@@ -10,7 +10,7 @@ import Foundation
 struct DateModel {
     static let dateFormatter = DateFormatter()
     
-    static func getTodayDateString() -> String {
+    static func getTodayString() -> String {
         dateFormatter.dateFormat = "d/MM/YYYY"
         return dateFormatter.string(from: Date())
     }

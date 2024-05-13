@@ -26,8 +26,6 @@ struct DateModel {
         let currentDate = Date()
         
         let components = calendar.dateComponents([.day], from: currentDate, to: targetDate)
-        
-        let remain
         guard let days = components.day else {
             return nil
         }

@@ -21,6 +21,9 @@ struct MainView: View {
                 VStack {
                     HStack {
                         Spacer()
+                        ZStack{
+                            
+                        }
                         Button{
                             self.showAddListView.toggle()
                         } label: {

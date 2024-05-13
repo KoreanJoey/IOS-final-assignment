@@ -79,7 +79,6 @@
 				54EA64C12BDE105B00812325 /* AddListViewModel.swift */,
 				541068302BE67DEB003FB50F /* ItemStatusView.swift */,
 				542E73B12BE9C902001BB72E /* RecipeManager.swift */,
-				28EFC96B2BF0B003003E5D8A /* DateModel.swift */,
 				54EA64CA2BDE383700812325 /* Model */,
 				54EA64C92BDE37E600812325 /* Resources */,
 			);
@@ -104,6 +103,7 @@
 		54EA64CA2BDE383700812325 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				28EFC96B2BF0B003003E5D8A /* DateModel.swift */,
 				54EA64C32BDE1E6F00812325 /* ListItem.swift */,
 				54EA64C52BDE33E300812325 /* ModelData.swift */,
 			);

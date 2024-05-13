@@ -21,21 +21,34 @@ struct ItemRow: View {
                     .cornerRadius(/*@START_MENU_TOKEN@*/10.0/*@END_MENU_TOKEN@*/)
                 VStack {
                     Text(item.name)
-                    Text(item.expiredDate)
-//                    Text(DateModel.getTodayDateString())
-                    if let daysRemaining = DateModel.calculateRemainingDay(expireDateString: item.expiredDate) {
-                        Text("\(daysRemaining)")
-                    } else {
-                        Text("invalid date format")
-                    }
+                    Text("Best before: \(item.expiredDate)")
                 }
                 Spacer()
-                VStack {
+                ZStack {
+                    Color.white
                     Text("\(item.quantity)")
                 }
-                Rectangle()
-                    .padding()
+                .frame(width: 45.0, height: 45.0)
+                .cornerRadius(10.0)
+                
+                Button{
+                    //Subtract Quentity
+                } label: {
+                    ZStack {
+                        Color.white
+                        Rectangle()
+                            .frame(width: 38.0, height: 38.0)
+                            .cornerRadius(7.0)
+                            .foregroundColor(Color.defaultButton)
+                        Rectangle()
+                            .frame(width: 26.0, height: 3.75)
+                            .foregroundColor(.white)
+                            
+                    }
                     .frame(width: 45.0, height: 45.0)
+                    .cornerRadius(10.0)
+                    .shadow(radius: 10)
+                }
             }
             .padding(/*@START_MENU_TOKEN@*/.all, 10.0/*@END_MENU_TOKEN@*/)
             .frame(width: 370.0, height: 65.0)

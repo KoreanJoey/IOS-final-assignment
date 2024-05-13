@@ -10,6 +10,8 @@
 		28EFC96C2BF0B003003E5D8A /* DateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28EFC96B2BF0B003003E5D8A /* DateModel.swift */; };
 		541068312BE67DEB003FB50F /* ItemStatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541068302BE67DEB003FB50F /* ItemStatusView.swift */; };
 		542E73B22BE9C902001BB72E /* RecipeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 542E73B12BE9C902001BB72E /* RecipeManager.swift */; };
+		5450BD962BF1F72100DD38CE /* RecipeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5450BD952BF1F72100DD38CE /* RecipeData.swift */; };
+		5450BD992BF212AE00DD38CE /* ListItemData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5450BD972BF212AE00DD38CE /* ListItemData.xcdatamodeld */; };
 		54A5B6CE2BD5E21000B1F728 /* ApplicationApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54A5B6CD2BD5E21000B1F728 /* ApplicationApp.swift */; };
 		54A5B6D22BD5E21100B1F728 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 54A5B6D12BD5E21100B1F728 /* Assets.xcassets */; };
 		54BB69272BE08B5200B9FAF2 /* ItemRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54BB69262BE08B5200B9FAF2 /* ItemRow.swift */; };
@@ -26,6 +28,8 @@
 		28EFC96B2BF0B003003E5D8A /* DateModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateModel.swift; sourceTree = "<group>"; };
 		541068302BE67DEB003FB50F /* ItemStatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemStatusView.swift; sourceTree = "<group>"; };
 		542E73B12BE9C902001BB72E /* RecipeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeManager.swift; sourceTree = "<group>"; };
+		5450BD952BF1F72100DD38CE /* RecipeData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeData.swift; sourceTree = "<group>"; };
+		5450BD982BF212AE00DD38CE /* ListItemData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ListItemData.xcdatamodel; sourceTree = "<group>"; };
 		54A5B6CA2BD5E21000B1F728 /* Application.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Application.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		54A5B6CD2BD5E21000B1F728 /* ApplicationApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationApp.swift; sourceTree = "<group>"; };
 		54A5B6D12BD5E21100B1F728 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -79,6 +83,7 @@
 				54EA64C12BDE105B00812325 /* AddListViewModel.swift */,
 				541068302BE67DEB003FB50F /* ItemStatusView.swift */,
 				542E73B12BE9C902001BB72E /* RecipeManager.swift */,
+				5450BD972BF212AE00DD38CE /* ListItemData.xcdatamodeld */,
 				54EA64CA2BDE383700812325 /* Model */,
 				54EA64C92BDE37E600812325 /* Resources */,
 			);
@@ -106,6 +111,7 @@
 				28EFC96B2BF0B003003E5D8A /* DateModel.swift */,
 				54EA64C32BDE1E6F00812325 /* ListItem.swift */,
 				54EA64C52BDE33E300812325 /* ModelData.swift */,
+				5450BD952BF1F72100DD38CE /* RecipeData.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -186,10 +192,12 @@
 				541068312BE67DEB003FB50F /* ItemStatusView.swift in Sources */,
 				54EA64BC2BDE0FBD00812325 /* MainView.swift in Sources */,
 				54A5B6CE2BD5E21000B1F728 /* ApplicationApp.swift in Sources */,
+				5450BD992BF212AE00DD38CE /* ListItemData.xcdatamodeld in Sources */,
 				54EA64BE2BDE0FD600812325 /* MainViewModel.swift in Sources */,
 				28EFC96C2BF0B003003E5D8A /* DateModel.swift in Sources */,
 				54EA64C02BDE102F00812325 /* AddListView.swift in Sources */,
 				54EA64C62BDE33E300812325 /* ModelData.swift in Sources */,
+				5450BD962BF1F72100DD38CE /* RecipeData.swift in Sources */,
 				54BB69272BE08B5200B9FAF2 /* ItemRow.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -394,6 +402,20 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		5450BD972BF212AE00DD38CE /* ListItemData.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				5450BD982BF212AE00DD38CE /* ListItemData.xcdatamodel */,
+			);
+			currentVersion = 5450BD982BF212AE00DD38CE /* ListItemData.xcdatamodel */;
+			name = ListItemData.xcdatamodeld;
+			path = "/Users/dolha4166/Documents/GitHub/IOS-final-assignment/Application/Application/ListItemData.xcdatamodeld";
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 54A5B6C22BD5E21000B1F728 /* Project object */;
 }

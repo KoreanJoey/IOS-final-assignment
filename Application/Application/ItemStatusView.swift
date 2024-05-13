@@ -26,7 +26,7 @@ struct ItemStatusView: View {
         
         Text("The food recipe list would be here")
             .frame(width:300, height:400)
-            .background(RoundedRectangle(cornerRadius: 10).fill(Color.blue))
+            .background(RoundedRectangle(cornerRadius: 10).fill(Color.cyan))
         
         HStack{
             Button("Back") {

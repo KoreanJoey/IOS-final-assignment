@@ -16,33 +16,65 @@ struct MainView: View {
     
     var body: some View {
             ZStack {
-                Color.cyan
-                    .ignoresSafeArea()
-                VStack {
-                    HStack {
-                        Spacer()
+                Color.gray
+                VStack() {
+                    HStack() {
+                        ZStack{
+                            Rectangle()
+                                .foregroundColor(Color.titleBackground)
+                                .frame(width: 280.0, height: 35.0)
+                                .cornerRadius(7)
+                            Text("Today: \(DateModel.getTodayString())")
+                                .foregroundColor(Color.black)
+                                .multilineTextAlignment(.center)
+                        }
+                        .frame(width: 290.0, height: 45.0)
+                        .background(.gray)
+                        .cornerRadius(12)
                         Button{
                             self.showAddListView.toggle()
                         } label: {
                             Image(systemName: "plus.app.fill")
-                                .font(.system(size: 50))
-                                .foregroundColor(.white)
+                                .frame(width: 45.0, height: 45.0)
+                                .font(.system(size: 42))
+                                .foregroundColor(Color.addButtonBackground)
+                                .background(Color.defaultButton)
+                                .cornerRadius(12)
                         }
-                        .padding()
                     }
-                    List(listitems, id:\.id) {
-                        listItem in
-                        Button{
+                    .padding(.horizontal, 40.0)
+                    .frame(height: 90.0)
+                    .background(.white)
+                    
+//                    List(listitems, id:\.id) {
+//                        listItem in
+//                        Button{
 //                            currentId = listItem.id
 //                            let item = listitems.first(where: {$0.id == listItem.id })
-                            self.showItemStatusView.toggle()
-                        } label: {
-                            ItemRow(item: listItem)
+//                            self.showItemStatusView.toggle()
+//                        } label: {
+//                            ItemRow(item: listItem)
+//                        }
+//                    }
+//                    .listStyle(PlainListStyle())
+//                    .padding()
+                    List {
+                        ForEach(listitems, id: \.id) { listItem in
+                            Button{
+                                self.showItemStatusView.toggle()
+                            } label: {
+                                ItemRow(item: listItem)
+                            }
                         }
+                        .listRowInsets(EdgeInsets())
                     }
-                    .listStyle(PlainListStyle())
-                    .padding()
+                    .listRowSpacing(15)
+                    .scrollContentBackground(.hidden)
+                    .background(LinearGradient(gradient: Gradient(colors: [Color.defaultBackground, Color.white]), startPoint: .top, endPoint: .bottom))
+
                 }
+                
+                
             }
             .fullScreenCover(isPresented: $showAddListView, content: {
                 AddListView(newItem: listitems[0])

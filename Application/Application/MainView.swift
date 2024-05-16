@@ -27,7 +27,7 @@ struct MainView: View {
                                 .foregroundColor(Color.titleBackground)
                                 .frame(width: 280.0, height: 35.0)
                                 .cornerRadius(7)
-                            Text("Today: \(DateModel.getTodayString())")
+                            Text("Today: \(DateModel.getTodayString()) \(currentIndex)")
                                 .foregroundColor(Color.black)
                                 .multilineTextAlignment(.center)
                         }
@@ -49,9 +49,9 @@ struct MainView: View {
                     .background(.white)
 
                     List {
-                        ForEach(0..<listitems.count) { index in
+                        ForEach(0..<listitems.count, id:\.self) { index in
                             Button{
-                                currentIndex = index
+                                self.currentIndex = index
                                 self.showItemStatusView.toggle()
                             } label: {
                                 ItemRow(item: listitems[index])
@@ -65,6 +65,14 @@ struct MainView: View {
                     .background(LinearGradient(gradient: Gradient(colors: [Color.defaultBackground, Color.white]), startPoint: .top, endPoint: .bottom))
                     .frame(width: screenWidth)
                     .ignoresSafeArea()
+                    Button{
+                        
+                    } label: {
+                        ZStack {
+                            
+                        }
+                        
+                    }
                 }
                 
             }

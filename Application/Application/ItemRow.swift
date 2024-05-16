@@ -36,7 +36,7 @@ struct ItemRow: View {
                 
                 Button{
                     
-                    //Subtract Quentity
+//                    Subtract Quentity
                     if self.item.quantity > 0 {
                         self.item.quantity -= 1
                     }

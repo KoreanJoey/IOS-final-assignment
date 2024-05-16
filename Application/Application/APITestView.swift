@@ -23,15 +23,27 @@ struct APITestView: View {
             }
             .padding()
             
-            Text("Recipe: \(recipeTitle)")
-                .padding()
+            if recipeManager.noRecipesFound {
+                Text("No recipes matched your ingredient. Please try another ingredient.")
+                    .foregroundColor(.red)
+                    .padding()
+            } else {
+                
+            List(recipeManager.recipes, id: \.self) { recipe in
+                HStack() {
+                    URLImageView(urlString: "\(recipe.image)", width: 100, height: 100)
+                    Text(recipe.title)
+                        .fontWeight(.bold)
+                        }
+                    }
+                }
         }
-        .onReceive(recipeManager.$recipeData) {
-            data in
-            if let data = data {
-                recipeTitle = "\(data.title)"
+        .onReceive(recipeManager.$recipes) { recipes in
+            if let firstRecipe = recipes.first {
+                self.recipeTitle = firstRecipe.title
             }
         }
+
     }
 }
 

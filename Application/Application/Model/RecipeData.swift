@@ -6,8 +6,8 @@
 //
 
 import Foundation
-struct Recipe: Decodable{
-    //let id: Int
+struct Recipe: Decodable,Hashable{
+    let id: Int
     let title: String
     let image: String
     let imageType: String

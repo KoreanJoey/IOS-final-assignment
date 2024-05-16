@@ -8,9 +8,7 @@
 import SwiftUI
 
 struct MainView: View {
-    
     @State var currentId: Int = 1
-    
     @State private var showAddListView: Bool = false
     @State private var showItemStatusView: Bool = false
     
@@ -81,7 +79,7 @@ struct MainView: View {
                 
             }
             .fullScreenCover(isPresented: $showAddListView, content: {
-                AddListView(newItem: listitems[0])
+                AddListView()
             })
             
             .fullScreenCover(isPresented: $showItemStatusView, content: {

@@ -9,15 +9,23 @@ import SwiftUI
 import Combine
 
 struct AddListView: View {
-    @StateObject var listModel = addListViewModel()
-    @State var selectedDate: Date = Date()
+    let dataController = DataController()
+    @StateObject var addListModel = AddListViewModel()
+    @Environment(\.managedObjectContext) private var viewContext
+    // Fetch request to get all items from Core Data
+    @FetchRequest(sortDescriptors: [])
+    var items: FetchedResults<Item>
+    
+    
+    @State private var newItemId = UUID()
+    @State private var newItemName: String = ""
+    @State private var newItemQuantity: String = ""
+    @State private var newItemExpiredDate = Date()
     @State var showMainView: Bool = false
-    @State var quantity: String = ""
-    @State var newItem: ListItem
     
     var dateRange: ClosedRange<Date> {
-        let min = Calendar.current.date(byAdding: .year, value: -1, to: selectedDate)!
-        let max = Calendar.current.date(byAdding: .year, value: 1, to: selectedDate)!
+        let min = Calendar.current.date(byAdding: .year, value: -1, to: newItemExpiredDate)!
+        let max = Calendar.current.date(byAdding: .year, value: 1, to: newItemExpiredDate)!
         
         return min...max
     }
@@ -49,22 +57,15 @@ struct AddListView: View {
                 .background(.white)
                 
                 VStack {
-                    TextField("Enter name of item here", text: $newItem.name)
+                    TextField("Enter name of item here", text: $newItemName)
                                 .frame(width: 300, height: 40)
                                 .padding([.leading, .trailing], 10)
                                 .background(RoundedRectangle(cornerRadius: 10)
                                     .fill(Color.green))
                     
-                    VStack{DatePicker(selection: $selectedDate, in: dateRange, displayedComponents: .date){
+                    VStack{DatePicker(selection: $newItemExpiredDate, in: dateRange, displayedComponents: .date){
                         Text("Expirary date")
                             .frame(width: 120, height: 40)
-                        Button("Save date"){
-                            let dateFormatter = DateFormatter()
-                            dateFormatter.dateFormat = "dd/MM/yyyy"
-                            let selectedDate2 = dateFormatter.string(from: selectedDate)
-                            newItem.expiredDate = selectedDate2}
-                        .background(Color.clear)
-                        .frame(width: 100, height: 40)
                     }
                     .background(RoundedRectangle(cornerRadius: 10)
                     .fill(Color.green))
@@ -75,12 +76,12 @@ struct AddListView: View {
                  
                     
                     
-                    TextField("Enter quentity of item here", value: $newItem.quantity, formatter: NumberFormatter())
+                    TextField("Enter quentity of item here", value: $newItemQuantity, formatter: NumberFormatter())
                         .keyboardType(.numberPad)
-                        .onReceive(Just(String(newItem.quantity))){ newValue in
+                        .onReceive(Just(newItemQuantity)){ newValue in
                             let filtered = newValue.filter {"0123456789".contains($0)}
                                 if filtered != newValue{
-                                    self.quantity = filtered
+                                    self.newItemQuantity = filtered
                                 }}
                                 .frame(width: 300, height: 40)
                                 .tint(.cyan)
@@ -122,7 +123,12 @@ struct AddListView: View {
                             .fill(Color.backButton))
                         
                         Button("Save"){
-                            save(newItem, filename:"ListItemData.json")
+                            let newItem = Item(context: viewContext)
+                            newItem.expiredDate = newItemExpiredDate
+                            newItem.quantity = Int32(newItemQuantity) ?? 0
+                            newItem.name = newItemName
+                            newItem.id = newItemId
+                            try? viewContext.save()
                         }
                         .font(.title)
                         .foregroundColor(.black)
@@ -141,9 +147,13 @@ struct AddListView: View {
               })
         }
     }
+    
+    
+    
 }
 
 
+
 #Preview {
-    AddListView(newItem: listitems[0])
+    AddListView()
 }

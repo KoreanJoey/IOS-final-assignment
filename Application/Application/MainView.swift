@@ -47,19 +47,8 @@ struct MainView: View {
                     }
                     .frame(width: screenWidth, height: 90.0)
                     .background(.white)
-                    
-//                    List {
-//                        Text("Current index: \(currentIndex)")
-//                        ForEach(listitems, id: \.id) { listItem in
-//                            Button{
-//                                self.showItemStatusView.toggle()
-//                            } label: {
-//                                ItemRow(item: listItem)
-//                            }
-//                            
-//                        }
+
                     List {
-                        Text("Current index: \(currentIndex)")
                         ForEach(0..<listitems.count) { index in
                             Button{
                                 currentIndex = index
@@ -67,7 +56,6 @@ struct MainView: View {
                             } label: {
                                 ItemRow(item: listitems[index])
                             }
-                            
                         }
                         .listRowInsets(EdgeInsets())
                         .listStyle(PlainListStyle())

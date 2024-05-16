@@ -9,7 +9,7 @@ import SwiftUI
 
 struct MainView: View {
     
-    @State var currentId: Int = 1
+    @State private var currentIndex: Int = 1
     
     @State private var showAddListView: Bool = false
     @State private var showItemStatusView: Bool = false
@@ -48,24 +48,24 @@ struct MainView: View {
                     .frame(width: screenWidth, height: 90.0)
                     .background(.white)
                     
-                    //                    List(listitems, id:\.id) {
-                    //                        listItem in
-                    //                        Button{
-                    //                            currentId = listItem.id
-                    //                            let item = listitems.first(where: {$0.id == listItem.id })
-                    //                            self.showItemStatusView.toggle()
-                    //                        } label: {
-                    //                            ItemRow(item: listItem)
-                    //                        }
-                    //                    }
-                    //                    .listStyle(PlainListStyle())
-                    //                    .padding()
+//                    List {
+//                        Text("Current index: \(currentIndex)")
+//                        ForEach(listitems, id: \.id) { listItem in
+//                            Button{
+//                                self.showItemStatusView.toggle()
+//                            } label: {
+//                                ItemRow(item: listItem)
+//                            }
+//                            
+//                        }
                     List {
-                        ForEach(listitems, id: \.id) { listItem in
+                        Text("Current index: \(currentIndex)")
+                        ForEach(0..<listitems.count) { index in
                             Button{
+                                currentIndex = index
                                 self.showItemStatusView.toggle()
                             } label: {
-                                ItemRow(item: listItem)
+                                ItemRow(item: listitems[index])
                             }
                             
                         }
@@ -85,7 +85,7 @@ struct MainView: View {
             })
             
             .fullScreenCover(isPresented: $showItemStatusView, content: {
-                ItemStatusView(item: listitems[currentId])
+                ItemStatusView(item: listitems[currentIndex])
             })
         }
         

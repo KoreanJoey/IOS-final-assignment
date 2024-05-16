@@ -6,10 +6,15 @@
 //
 
 import Foundation
-struct RecipeData: Decodable{
+struct Recipe: Decodable,Hashable{
     let id: Int
     let title: String
-    let imgae: String
+    let image: String
     let imageType: String
     
+}
+
+
+struct RecipeData: Decodable {
+    let recipes: [Recipe]
 }

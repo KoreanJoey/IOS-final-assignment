@@ -45,7 +45,7 @@ struct ItemStatusView: View {
                         VStack{
                             Text(item.name)
                                 .frame(width:150, height: 50)
-                                .background(RoundedRectangle(cornerRadius: 10).fill(Color.cyan))
+                                .background(RoundedRectangle(cornerRadius: 10).fill(Color(.cyan)))
                             
                             Text(item.expiredDate)
                                 .frame(width:150, height: 50)

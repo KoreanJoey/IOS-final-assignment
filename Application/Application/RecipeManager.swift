@@ -74,6 +74,7 @@ class RecipeManager: ObservableObject {
                 return
             }
 
+            // 초기 상태 설정
             DispatchQueue.main.async {
                 self.recipes = []
                 self.noRecipesFound = false

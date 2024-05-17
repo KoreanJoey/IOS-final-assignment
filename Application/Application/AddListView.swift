@@ -7,21 +7,18 @@
 
 import SwiftUI
 import Combine
+import CoreData
 
 struct AddListView: View {
-    let dataController = DataController()
     @StateObject var addListModel = AddListViewModel()
     @Environment(\.managedObjectContext) private var viewContext
-    // Fetch request to get all items from Core Data
-    @FetchRequest(sortDescriptors: [])
-    var items: FetchedResults<Item>
-    
-    
     @State private var newItemId = UUID()
     @State private var newItemName: String = ""
     @State private var newItemQuantity: String = ""
     @State private var newItemExpiredDate = Date()
     @State var showMainView: Bool = false
+    @State var isPickerShowing = false
+    @State var selectedImage: UIImage?
     
     var dateRange: ClosedRange<Date> {
         let min = Calendar.current.date(byAdding: .year, value: -1, to: newItemExpiredDate)!
@@ -56,6 +53,24 @@ struct AddListView: View {
                 .frame(width: screenWidth, height: 90.0)
                 .background(.white)
                 
+                VStack{
+                    if selectedImage != nil{
+                        Image(uiImage: selectedImage!)
+                            .resizable()
+                            .frame(width: 200, height: 200 )
+                    }
+                    Button{
+                        isPickerShowing = true
+                    }label: {
+                        Text("Select a Image")
+                           
+                    }
+                }
+                .sheet(isPresented: $isPickerShowing, onDismiss: nil) {
+                    //image picker
+                    ImagePicker(selectedImage: $selectedImage, isPickerShowing: $isPickerShowing)
+                }
+                
                 VStack {
                     TextField("Enter name of item here", text: $newItemName)
                                 .frame(width: 300, height: 40)
@@ -76,7 +91,7 @@ struct AddListView: View {
                  
                     
                     
-                    TextField("Enter quentity of item here", value: $newItemQuantity, formatter: NumberFormatter())
+                    TextField("Enter quentity of item here", text: $newItemQuantity)
                         .keyboardType(.numberPad)
                         .onReceive(Just(newItemQuantity)){ newValue in
                             let filtered = newValue.filter {"0123456789".contains($0)}
@@ -123,12 +138,10 @@ struct AddListView: View {
                             .fill(Color.backButton))
                         
                         Button("Save"){
-                            let newItem = Item(context: viewContext)
-                            newItem.expiredDate = newItemExpiredDate
-                            newItem.quantity = Int32(newItemQuantity) ?? 0
-                            newItem.name = newItemName
-                            newItem.id = newItemId
-                            try? viewContext.save()
+                            let dataImage = selectedImage?.pngData()
+                            addListModel.addItem(name: newItemName, expiredDate: newItemExpiredDate, id: UUID(), quantity: Int32(newItemQuantity) ?? 0, image: dataImage!)
+                            newItemName = ""
+                            newItemQuantity = ""
                         }
                         .font(.title)
                         .foregroundColor(.black)
@@ -137,10 +150,12 @@ struct AddListView: View {
                             .fill(Color.saveButton))
                         }
                 }
+                
                 .padding(.top, 10.0)
                 .background(LinearGradient(gradient: Gradient(colors: [Color.defaultBackground, Color.white]), startPoint: .top, endPoint: .bottom))
                 
             }
+            
         }
         .fullScreenCover(isPresented: $showMainView, content: {
                   MainView()

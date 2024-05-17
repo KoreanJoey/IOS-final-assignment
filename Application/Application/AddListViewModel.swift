@@ -6,55 +6,54 @@
 //
 
 import SwiftUI
-import UIKit
+import CoreData
 class AddListViewModel: ObservableObject{
-    @Environment(\.managedObjectContext) private var viewContext
-    // Fetch request to get all items from Core Data
-    @FetchRequest(entity: Item.entity(), sortDescriptors: []) private var items: FetchedResults<Item>
-    
-    @State private var newItemName: String = ""
-    @State private var newItemQuantity: String = ""
-    @State private var newItemExpiredDate = Date()
-    @State var showMainView: Bool = false
-    
-    
-    // Function to add a new item to Core Data
-func addItem() {
-        withAnimation {
-            let newItem = Item(context: viewContext)
-            newItem.name = newItemName
-            newItem.quantity = Int32(newItemQuantity) ?? 0
-            newItem.expiredDate = newItemExpiredDate
-            // Set any other properties as needed
-            do {
-                try viewContext.save()
-            } catch {
-                // Handle error
-                let nsError = error as NSError
-                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
+    let container: NSPersistentContainer
+    @Published var savedEntities: [ItemEntity] = []
+    init(){
+        container = NSPersistentContainer(name: "ListItemModel")
+        container.loadPersistentStores { (description, error) in
+            if let error = error{
+                print("Error Loading Core Date. \(error)")
             }
+        }
+        fetchItem()
+    }
+    
+    func fetchItem(){
+        let request = NSFetchRequest<ItemEntity>(entityName: "ItemEntity")
+        do{
+            savedEntities = try container.viewContext.fetch(request)
+        } catch let error{
+            print("Error fetching. \(error)")
         }
     }
     
-    // Function to delete selected items from Core Data
-func deleteItems(offsets: IndexSet) {
-        withAnimation {
-            offsets.map { items[$0] }.forEach(viewContext.delete)
-            do {
-                try viewContext.save()
-            } catch {
-                // Handle error
-                let nsError = error as NSError
-                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
-            }
-        }
+    func addItem(name: String, expiredDate: Date, id: UUID, quantity: Int32, image: Data){
+        let newItem = ItemEntity(context: container.viewContext)
+        newItem.name = name
+        newItem.expiredDate = expiredDate
+        newItem.quantity = quantity
+        newItem.id = id
+        newItem.image = image
+        saveItem()
     }
     
-    // Function to clear input fields after adding an item
-func clearFields() {
-        newItemName = ""
-        newItemQuantity = ""
-        newItemExpiredDate = Date()
+    func deleteItem(indexSet: IndexSet){
+        guard let index = indexSet.first else{return}
+        let entity = savedEntities[index]
+        container.viewContext.delete(entity)
+        saveItem()
+    }
+    
+    func saveItem(){
+        do{
+           try container.viewContext.save()
+            fetchItem()
+        }
+        catch let error{
+            print("Error Saving \(error)")
+        }
     }
 }
 

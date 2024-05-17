@@ -8,15 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		28EFC96C2BF0B003003E5D8A /* DateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28EFC96B2BF0B003003E5D8A /* DateModel.swift */; };
-		2981B0152BF5C2BD0064A2AC /* ListItemModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2981B0132BF5C2BD0064A2AC /* ListItemModel.xcdatamodeld */; };
-		2981B0172BF5C3340064A2AC /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2981B0162BF5C3340064A2AC /* DataController.swift */; };
-		2981B0232BF5CC050064A2AC /* ListItem+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2981B0212BF5CC050064A2AC /* ListItem+CoreDataClass.swift */; };
-		2981B0242BF5CC050064A2AC /* ListItem+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2981B0222BF5CC050064A2AC /* ListItem+CoreDataProperties.swift */; };
-		2981B0262BF5DF630064A2AC /* CoredataTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2981B0252BF5DF630064A2AC /* CoredataTest.swift */; };
+		2916C4652BF6CDDA00DB08AC /* ListItemModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2916C4632BF6CDDA00DB08AC /* ListItemModel.xcdatamodeld */; };
+		29B95F022BF6E8DC007D6299 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29B95F012BF6E8DC007D6299 /* ImagePicker.swift */; };
 		541068312BE67DEB003FB50F /* ItemStatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541068302BE67DEB003FB50F /* ItemStatusView.swift */; };
 		542E73B22BE9C902001BB72E /* RecipeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 542E73B12BE9C902001BB72E /* RecipeManager.swift */; };
 		5450BD962BF1F72100DD38CE /* RecipeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5450BD952BF1F72100DD38CE /* RecipeData.swift */; };
-		5450BD992BF212AE00DD38CE /* ListItemData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5450BD972BF212AE00DD38CE /* ListItemData.xcdatamodeld */; };
+		5450BD992BF212AE00DD38CE /* (null) in Sources */ = {isa = PBXBuildFile; };
 		549423F62BF5CDDD0078F153 /* APITestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 549423F52BF5CDDD0078F153 /* APITestView.swift */; };
 		549423F82BF5E8890078F153 /* URLImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 549423F72BF5E8890078F153 /* URLImageView.swift */; };
 		549423FC2BF639940078F153 /* RecipeSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 549423FB2BF639940078F153 /* RecipeSearchView.swift */; };
@@ -34,15 +31,11 @@
 
 /* Begin PBXFileReference section */
 		28EFC96B2BF0B003003E5D8A /* DateModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateModel.swift; sourceTree = "<group>"; };
-		2981B0142BF5C2BD0064A2AC /* ListItemModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ListItemModel.xcdatamodel; sourceTree = "<group>"; };
-		2981B0162BF5C3340064A2AC /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
-		2981B0212BF5CC050064A2AC /* ListItem+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ListItem+CoreDataClass.swift"; sourceTree = "<group>"; };
-		2981B0222BF5CC050064A2AC /* ListItem+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ListItem+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		2981B0252BF5DF630064A2AC /* CoredataTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoredataTest.swift; sourceTree = "<group>"; };
+		2916C4642BF6CDDA00DB08AC /* ListItemModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ListItemModel.xcdatamodel; sourceTree = "<group>"; };
+		29B95F012BF6E8DC007D6299 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		541068302BE67DEB003FB50F /* ItemStatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemStatusView.swift; sourceTree = "<group>"; };
 		542E73B12BE9C902001BB72E /* RecipeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeManager.swift; sourceTree = "<group>"; };
 		5450BD952BF1F72100DD38CE /* RecipeData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeData.swift; sourceTree = "<group>"; };
-		5450BD982BF212AE00DD38CE /* ListItemData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ListItemData.xcdatamodel; sourceTree = "<group>"; };
 		549423F52BF5CDDD0078F153 /* APITestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APITestView.swift; sourceTree = "<group>"; };
 		549423F72BF5E8890078F153 /* URLImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLImageView.swift; sourceTree = "<group>"; };
 		549423FB2BF639940078F153 /* RecipeSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeSearchView.swift; sourceTree = "<group>"; };
@@ -73,11 +66,7 @@
 		2981B01C2BF5C90B0064A2AC /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
-				2981B0132BF5C2BD0064A2AC /* ListItemModel.xcdatamodeld */,
-				2981B0162BF5C3340064A2AC /* DataController.swift */,
-				2981B0222BF5CC050064A2AC /* ListItem+CoreDataProperties.swift */,
-				2981B0212BF5CC050064A2AC /* ListItem+CoreDataClass.swift */,
-				2981B0252BF5DF630064A2AC /* CoredataTest.swift */,
+				2916C4632BF6CDDA00DB08AC /* ListItemModel.xcdatamodeld */,
 			);
 			path = CoreData;
 			sourceTree = "<group>";
@@ -109,6 +98,7 @@
 				54BB69262BE08B5200B9FAF2 /* ItemRow.swift */,
 				54EA64BF2BDE102F00812325 /* AddListView.swift */,
 				54EA64C12BDE105B00812325 /* AddListViewModel.swift */,
+				29B95F012BF6E8DC007D6299 /* ImagePicker.swift */,
 				541068302BE67DEB003FB50F /* ItemStatusView.swift */,
 				549423F52BF5CDDD0078F153 /* APITestView.swift */,
 				549423FB2BF639940078F153 /* RecipeSearchView.swift */,
@@ -219,26 +209,23 @@
 			files = (
 				54EA64C42BDE1E6F00812325 /* ListItem.swift in Sources */,
 				542E73B22BE9C902001BB72E /* RecipeManager.swift in Sources */,
-				2981B0232BF5CC050064A2AC /* ListItem+CoreDataClass.swift in Sources */,
-				2981B0242BF5CC050064A2AC /* ListItem+CoreDataProperties.swift in Sources */,
 				54EA64C22BDE105B00812325 /* AddListViewModel.swift in Sources */,
 				541068312BE67DEB003FB50F /* ItemStatusView.swift in Sources */,
 				54EA64BC2BDE0FBD00812325 /* MainView.swift in Sources */,
 				549423F62BF5CDDD0078F153 /* APITestView.swift in Sources */,
 				54A5B6CE2BD5E21000B1F728 /* ApplicationApp.swift in Sources */,
-				5450BD992BF212AE00DD38CE /* ListItemData.xcdatamodeld in Sources */,
+				5450BD992BF212AE00DD38CE /* (null) in Sources */,
 				549423F82BF5E8890078F153 /* URLImageView.swift in Sources */,
 				54EA64BE2BDE0FD600812325 /* MainViewModel.swift in Sources */,
+				2916C4652BF6CDDA00DB08AC /* ListItemModel.xcdatamodeld in Sources */,
 				549423FC2BF639940078F153 /* RecipeSearchView.swift in Sources */,
-				2981B0262BF5DF630064A2AC /* CoredataTest.swift in Sources */,
 				54A5B6CE2BD5E21000B1F728 /* ApplicationApp.swift in Sources */,
 				54EA64BE2BDE0FD600812325 /* MainViewModel.swift in Sources */,
-				2981B0172BF5C3340064A2AC /* DataController.swift in Sources */,
 				28EFC96C2BF0B003003E5D8A /* DateModel.swift in Sources */,
 				54EA64C02BDE102F00812325 /* AddListView.swift in Sources */,
 				54EA64C62BDE33E300812325 /* ModelData.swift in Sources */,
+				29B95F022BF6E8DC007D6299 /* ImagePicker.swift in Sources */,
 				5450BD962BF1F72100DD38CE /* RecipeData.swift in Sources */,
-				2981B0152BF5C2BD0064A2AC /* ListItemModel.xcdatamodeld in Sources */,
 				54BB69272BE08B5200B9FAF2 /* ItemRow.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -445,13 +432,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		2981B0132BF5C2BD0064A2AC /* ListItemModel.xcdatamodeld */ = {
+		2916C4632BF6CDDA00DB08AC /* ListItemModel.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				2981B0142BF5C2BD0064A2AC /* ListItemModel.xcdatamodel */,
+				2916C4642BF6CDDA00DB08AC /* ListItemModel.xcdatamodel */,
 			);
-			currentVersion = 2981B0142BF5C2BD0064A2AC /* ListItemModel.xcdatamodel */;
-			path = ListItemModel.xcdatamodeld;
+			currentVersion = 2916C4642BF6CDDA00DB08AC /* ListItemModel.xcdatamodel */;
+			name = ListItemModel.xcdatamodeld;
+			path = "/Users/14463323/Desktop/IOS dev-2/IOS-final-assignment/Application/Application/CoreData/ListItemModel.xcdatamodeld";
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

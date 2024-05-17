@@ -19,6 +19,4 @@ struct ListItem: Codable, Hashable, Identifiable {
         Image(imageName)
     }
     
-    
-    
 }

@@ -25,8 +25,6 @@
 		54EA64BE2BDE0FD600812325 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54EA64BD2BDE0FD600812325 /* MainViewModel.swift */; };
 		54EA64C02BDE102F00812325 /* AddListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54EA64BF2BDE102F00812325 /* AddListView.swift */; };
 		54EA64C22BDE105B00812325 /* AddListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54EA64C12BDE105B00812325 /* AddListViewModel.swift */; };
-		54EA64C42BDE1E6F00812325 /* ListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54EA64C32BDE1E6F00812325 /* ListItem.swift */; };
-		54EA64C62BDE33E300812325 /* ModelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54EA64C52BDE33E300812325 /* ModelData.swift */; };
 		54EA64C82BDE374A00812325 /* ListItemData.json in Resources */ = {isa = PBXBuildFile; fileRef = 54EA64C72BDE374A00812325 /* ListItemData.json */; };
 /* End PBXBuildFile section */
 
@@ -49,8 +47,6 @@
 		54EA64BD2BDE0FD600812325 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		54EA64BF2BDE102F00812325 /* AddListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddListView.swift; sourceTree = "<group>"; };
 		54EA64C12BDE105B00812325 /* AddListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddListViewModel.swift; sourceTree = "<group>"; };
-		54EA64C32BDE1E6F00812325 /* ListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListItem.swift; sourceTree = "<group>"; };
-		54EA64C52BDE33E300812325 /* ModelData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelData.swift; sourceTree = "<group>"; };
 		54EA64C72BDE374A00812325 /* ListItemData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = ListItemData.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -132,8 +128,6 @@
 			isa = PBXGroup;
 			children = (
 				28EFC96B2BF0B003003E5D8A /* DateModel.swift */,
-				54EA64C32BDE1E6F00812325 /* ListItem.swift */,
-				54EA64C52BDE33E300812325 /* ModelData.swift */,
 				5450BD952BF1F72100DD38CE /* RecipeData.swift */,
 				28D57E8D2BF74A7100A6F4BB /* Item.swift */,
 			);
@@ -210,7 +204,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				54EA64C42BDE1E6F00812325 /* ListItem.swift in Sources */,
 				542E73B22BE9C902001BB72E /* RecipeManager.swift in Sources */,
 				54EA64C22BDE105B00812325 /* AddListViewModel.swift in Sources */,
 				541068312BE67DEB003FB50F /* ItemStatusView.swift in Sources */,
@@ -227,7 +220,6 @@
 				54EA64BE2BDE0FD600812325 /* MainViewModel.swift in Sources */,
 				28EFC96C2BF0B003003E5D8A /* DateModel.swift in Sources */,
 				54EA64C02BDE102F00812325 /* AddListView.swift in Sources */,
-				54EA64C62BDE33E300812325 /* ModelData.swift in Sources */,
 				29B95F022BF6E8DC007D6299 /* ImagePicker.swift in Sources */,
 				5450BD962BF1F72100DD38CE /* RecipeData.swift in Sources */,
 				54BB69272BE08B5200B9FAF2 /* ItemRow.swift in Sources */,

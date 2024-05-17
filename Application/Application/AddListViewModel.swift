@@ -9,8 +9,12 @@ import SwiftUI
 import CoreData
 class AddListViewModel: ObservableObject{
     let container: NSPersistentContainer
+<<<<<<< Updated upstream
     @Published var savedEntities: [ItemEntity] = []
     
+=======
+    var savedEntities: [ItemEntity] = []
+>>>>>>> Stashed changes
     init(){
         container = NSPersistentContainer(name: "ListItemModel")
         container.loadPersistentStores { (description, error) in

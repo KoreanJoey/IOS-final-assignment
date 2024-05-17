@@ -48,6 +48,27 @@ struct MainView: View {
                     }
                     .frame(width: screenWidth, height: 90.0)
                     .background(.white)
+<<<<<<< Updated upstream
+=======
+
+//                    List {
+//                        ForEach(0..<listitems.count, id:\.self) { index in
+//                            Button{
+//                                self.currentIndex = index
+//                                self.showItemStatusView.toggle()
+//                            } label: {
+//                                ItemRow(item: listitems[index])
+//                            }
+//                        }
+//                        .listRowInsets(EdgeInsets())
+//                        .listStyle(PlainListStyle())
+//                    }
+//                    .listRowSpacing(15)
+//                    .scrollContentBackground(.hidden)
+//                    .background(LinearGradient(gradient: Gradient(colors: [Color.defaultBackground, Color.white]), startPoint: .top, endPoint: .bottom))
+//                    .frame(width: screenWidth)
+//                    .ignoresSafeArea()
+>>>>>>> Stashed changes
                     
                     List{
                         ForEach(addListModel.savedEntities){ entity in
@@ -133,9 +154,9 @@ struct MainView: View {
                 AddListView()
             })
             
-            .fullScreenCover(isPresented: $showItemStatusView, content: {
-                ItemStatusView(item: listitems[currentIndex])
-            })
+//            .fullScreenCover(isPresented: $showItemStatusView, content: {
+//                ItemStatusView(item: listitems[currentIndex])
+//            })
         }
         
     }

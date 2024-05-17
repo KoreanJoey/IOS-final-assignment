@@ -7,17 +7,22 @@
 
 import SwiftUI
 import Combine
+import CoreData
 
 struct AddListView: View {
-    @StateObject var listModel = addListViewModel()
-    @State var selectedDate: Date = Date()
+    @StateObject var addListModel = AddListViewModel()
+    @Environment(\.managedObjectContext) private var viewContext
+    @State private var newItemId = UUID()
+    @State private var newItemName: String = ""
+    @State private var newItemQuantity: String = ""
+    @State private var newItemExpiredDate = Date()
     @State var showMainView: Bool = false
-    @State var quantity: String = ""
-    @State var newItem: ListItem
+    @State var isPickerShowing = false
+    @State var selectedImage: UIImage?
     
     var dateRange: ClosedRange<Date> {
-        let min = Calendar.current.date(byAdding: .year, value: -1, to: selectedDate)!
-        let max = Calendar.current.date(byAdding: .year, value: 1, to: selectedDate)!
+        let min = Calendar.current.date(byAdding: .year, value: -1, to: newItemExpiredDate)!
+        let max = Calendar.current.date(byAdding: .year, value: 1, to: newItemExpiredDate)!
         
         return min...max
     }
@@ -48,23 +53,34 @@ struct AddListView: View {
                 .frame(width: screenWidth, height: 90.0)
                 .background(.white)
                 
+                VStack{
+                    if selectedImage != nil{
+                        Image(uiImage: selectedImage!)
+                            .resizable()
+                            .frame(width: 200, height: 200 )
+                    }
+                    Button{
+                        isPickerShowing = true
+                    }label: {
+                        Text("Select a Image")
+                           
+                    }
+                }
+                .sheet(isPresented: $isPickerShowing, onDismiss: nil) {
+                    //image picker
+                    ImagePicker(selectedImage: $selectedImage, isPickerShowing: $isPickerShowing)
+                }
+                
                 VStack {
-                    TextField("Enter name of item here", text: $newItem.name)
+                    TextField("Enter name of item here", text: $newItemName)
                                 .frame(width: 300, height: 40)
                                 .padding([.leading, .trailing], 10)
                                 .background(RoundedRectangle(cornerRadius: 10)
                                     .fill(Color.green))
                     
-                    VStack{DatePicker(selection: $selectedDate, in: dateRange, displayedComponents: .date){
+                    VStack{DatePicker(selection: $newItemExpiredDate, in: dateRange, displayedComponents: .date){
                         Text("Expirary date")
                             .frame(width: 120, height: 40)
-                        Button("Save date"){
-                            let dateFormatter = DateFormatter()
-                            dateFormatter.dateFormat = "dd/MM/yyyy"
-                            let selectedDate2 = dateFormatter.string(from: selectedDate)
-                            newItem.expiredDate = selectedDate2}
-                        .background(Color.clear)
-                        .frame(width: 100, height: 40)
                     }
                     .background(RoundedRectangle(cornerRadius: 10)
                     .fill(Color.green))
@@ -75,12 +91,12 @@ struct AddListView: View {
                  
                     
                     
-                    TextField("Enter quentity of item here", value: $newItem.quantity, formatter: NumberFormatter())
+                    TextField("Enter quentity of item here", text: $newItemQuantity)
                         .keyboardType(.numberPad)
-                        .onReceive(Just(String(newItem.quantity))){ newValue in
+                        .onReceive(Just(newItemQuantity)){ newValue in
                             let filtered = newValue.filter {"0123456789".contains($0)}
                                 if filtered != newValue{
-                                    self.quantity = filtered
+                                    self.newItemQuantity = filtered
                                 }}
                                 .frame(width: 300, height: 40)
                                 .tint(.cyan)
@@ -122,7 +138,10 @@ struct AddListView: View {
                             .fill(Color.backButton))
                         
                         Button("Save"){
-                            save(newItem, filename:"ListItemData.json")
+                            let dataImage = selectedImage?.pngData()
+                            addListModel.addItem(name: newItemName, expiredDate: newItemExpiredDate, id: UUID(), quantity: Int32(newItemQuantity) ?? 0, image: dataImage!)
+                            newItemName = ""
+                            newItemQuantity = ""
                         }
                         .font(.title)
                         .foregroundColor(.black)
@@ -131,19 +150,25 @@ struct AddListView: View {
                             .fill(Color.saveButton))
                         }
                 }
+                
                 .padding(.top, 10.0)
                 .background(LinearGradient(gradient: Gradient(colors: [Color.defaultBackground, Color.white]), startPoint: .top, endPoint: .bottom))
                 
             }
+            
         }
         .fullScreenCover(isPresented: $showMainView, content: {
                   MainView()
               })
         }
     }
+    
+    
+    
 }
 
 
+
 #Preview {
-    AddListView(newItem: listitems[0])
+    AddListView()
 }

@@ -13,6 +13,7 @@ struct MainView: View {
     
     @State private var showAddListView: Bool = false
     @State private var showItemStatusView: Bool = false
+    @StateObject var addListModel = AddListViewModel()
     
     var body: some View {
         GeometryReader { geometry in
@@ -73,11 +74,76 @@ struct MainView: View {
                         }
                         
                     }
+                    
+                    List{
+                        ForEach(addListModel.savedEntities){ entity in
+                            Button{
+                                self.showItemStatusView.toggle()
+                            }label:{ZStack{
+                                    Color.white
+                                    HStack {
+                                        Image(uiImage: UIImage(data: entity.image ?? Data()) ?? UIImage())
+                                            .resizable()
+                                            .frame(width: 50, height: 50)
+                                            .cornerRadius(/*@START_MENU_TOKEN@*/10.0/*@END_MENU_TOKEN@*/)
+                                        VStack {
+                                            Text(entity.name ?? "No Name")
+                                                .foregroundColor(Color.black)
+                                            Text("Best before: \(String(describing: entity.expiredDate))")
+                                                .foregroundColor(Color.black)
+                                        }
+                                        Spacer()
+                                        ZStack {
+                                            Color.white
+                                            Text("\(entity.quantity)")
+                                                .foregroundColor(Color.black)
+                                        }
+                                        .frame(width: 45.0, height: 45.0)
+                                        .cornerRadius(10.0)
+                                        
+                                        Button{
+                                            //Subtract Quentity
+                                        } label: {
+                                            ZStack {
+                                                Color.white
+                                                Rectangle()
+                                                    .frame(width: 38.0, height: 38.0)
+                                                    .cornerRadius(7.0)
+                                                    .foregroundColor(Color.defaultButton)
+                                                Rectangle()
+                                                    .frame(width: 26.0, height: 3.75)
+                                                    .foregroundColor(.white)
+                                                
+                                            }
+                                            .frame(width: 45.0, height: 45.0)
+                                            .cornerRadius(10.0)
+                                            .shadow(radius: 10)
+                                        }
+                                    }
+                                    .padding(/*@START_MENU_TOKEN@*/.all, 10.0/*@END_MENU_TOKEN@*/)
+                                    .frame(width: 345.0, height: 65.0)
+                                    .background(Color.rowBackground)
+                                    .cornerRadius(7.0)
+                                }
+                                .frame(width: 355.0, height: 75.0)
+                                .cornerRadius(10.0)
+                                
+                            }
+                        }
+                        .onDelete(perform: addListModel.deleteItem)
+                        .listRowInsets(EdgeInsets())
+                        .listStyle(PlainListStyle())
+                    }
+                    .listRowSpacing(15)
+                    .scrollContentBackground(.hidden)
+                    .background(LinearGradient(gradient: Gradient(colors: [Color.defaultBackground, Color.white]), startPoint: .top, endPoint: .bottom))
+                    .frame(width: screenWidth)
+                    .ignoresSafeArea()
                 }
                 
             }
             .fullScreenCover(isPresented: $showAddListView, content: {
-                AddListView(newItem: listitems[0])
+                AddListView()
             })
             
             .fullScreenCover(isPresented: $showItemStatusView, content: {

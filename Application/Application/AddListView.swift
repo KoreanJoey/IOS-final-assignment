@@ -64,7 +64,8 @@ struct AddListView: View {
                                     .resizable()
                                     .frame(width: 200, height: 200 )
                             } else {
-                                
+                                Image("DefaltImage")
+                                    .resizable(resizingMode: .stretch)
                             }
                         }
                         .frame(width: 80, height: 80)
@@ -107,7 +108,7 @@ struct AddListView: View {
                                 .tint(.cyan)
                                 .padding([.leading, .trailing], 10)
                                 .background(RoundedRectangle(cornerRadius: 10)
-                                    .fill(Color.green))
+                                    .fill(Color.gray))
                                 Spacer()
                     
                     HStack{
@@ -125,6 +126,7 @@ struct AddListView: View {
                             addListModel.addItem(name: newItemName, expiredDate: newItemExpiredDate, id: UUID(), quantity: Int32(newItemQuantity) ?? 0, image: dataImage!)
                             newItemName = ""
                             newItemQuantity = ""
+                            self.showMainView.toggle()
                         }
                         .font(.title)
                         .foregroundColor(.black)

@@ -13,36 +13,68 @@ struct ItemStatusView: View {
     
     @State private var showMainView: Bool = false
     var body: some View {
-        VStack {
-            Text(item.name)
-                .frame(width:300, height: 50)
-            .background(RoundedRectangle(cornerRadius: 10).fill(Color.cyan))
+        GeometryReader { geometry in
+            let screenWidth = geometry.size.width
+            let screenHeight = geometry.size.height
+            ZStack {
+                Color.gray
+                    .ignoresSafeArea()
+                VStack{
+                    HStack {
+                        ZStack{
+                            Rectangle()
+                                .foregroundColor(Color.titleBackground)
+                                .frame(width: 280.0, height: 35.0)
+                                .cornerRadius(7)
+                            Text("Add New Item")
+                                .foregroundColor(Color.black)
+                                .multilineTextAlignment(.center)
+                        }
+                        .frame(width: 290.0, height: 45.0)
+                        .background(.gray)
+                        .cornerRadius(12)
+                    }
+                    .frame(width: screenWidth, height: 90.0)
+                    .background(.white)
+                    
+                    ZStack {
+                        Text(item.name)
+                            .frame(width:300, height: 50)
+                            .background(RoundedRectangle(cornerRadius: 10).fill(Color.cyan))
+                    }
+                    Text(item.expiredDate)
+                        .frame(width:300, height: 50)
+                        .background(RoundedRectangle(cornerRadius: 10).fill(Color.cyan))
+                    Text("\(item.quantity) left")
+                        .frame(width:300, height: 50)
+                        .background(RoundedRectangle(cornerRadius: 10).fill(Color.cyan))
+                    
+                    Text("The food recipe list would be here")
+                        .frame(width:300, height:400)
+                        .background(RoundedRectangle(cornerRadius: 10).fill(Color.cyan))
+                    
+                    HStack{
+                        Button("Back") {
+                            self.showMainView.toggle()
+                        }
+                        .font(.title)
+                        .foregroundColor(.black)
+                        .frame(width: 100, height: 50)
+                        .background(RoundedRectangle(cornerRadius: 10)
+                            .fill(Color("BackButtonColor")))
+                    }
+                    
+                    .fullScreenCover(isPresented: $showMainView, content: {
+                        MainView()
+                    })
+                }
+                .listRowSpacing(15)
+                .scrollContentBackground(.hidden)
+                .background(LinearGradient(gradient: Gradient(colors: [Color.defaultBackground, Color.white]), startPoint: .top, endPoint: .bottom))
+                .frame(width: screenWidth)
+                .ignoresSafeArea()
+            }
         }
-        Text(item.expiredDate)
-            .frame(width:300, height: 50)
-            .background(RoundedRectangle(cornerRadius: 10).fill(Color.cyan))
-        Text("\(item.quantity) left")
-            .frame(width:300, height: 50)
-            .background(RoundedRectangle(cornerRadius: 10).fill(Color.cyan))
-        
-        Text("The food recipe list would be here")
-            .frame(width:300, height:400)
-            .background(RoundedRectangle(cornerRadius: 10).fill(Color.cyan))
-        
-        HStack{
-            Button("Back") {
-                self.showMainView.toggle()
-            }
-            .font(.title)
-            .foregroundColor(.black)
-            .frame(width: 100, height: 50)
-            .background(RoundedRectangle(cornerRadius: 10)
-                .fill(Color("BackButtonColor")))
-            }
-        
-        .fullScreenCover(isPresented: $showMainView, content: {
-                  MainView()
-              })
     }
 }
 

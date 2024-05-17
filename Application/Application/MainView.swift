@@ -21,8 +21,8 @@ struct MainView: View {
             let screenHeight = geometry.size.height
             ZStack {
                 Color.gray
-                VStack() {
-                    HStack() {
+                VStack {
+                    HStack {
                         ZStack{
                             Rectangle()
                                 .foregroundColor(Color.titleBackground)

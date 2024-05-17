@@ -39,6 +39,12 @@ class AddListViewModel: ObservableObject{
         saveItem()
     }
     
+    func subtractQuantity(entity: ItemEntity){
+        let currentQuantity = entity.quantity
+        let newQuantity = currentQuantity - 1
+        entity.quantity = newQuantity
+        saveItem()
+    }
     func deleteItem(indexSet: IndexSet){
         guard let index = indexSet.first else{return}
         let entity = savedEntities[index]

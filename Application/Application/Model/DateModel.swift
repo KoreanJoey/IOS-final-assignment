@@ -15,21 +15,8 @@ struct DateModel {
         return dateFormatter.string(from: Date())
     }
     
-    static func calculateRemainingDay(expireDateString: String) -> Int? {
+    static func dateToString(date: Date) -> String {
         dateFormatter.dateFormat = "d/MM/YYYY"
-        
-        guard let targetDate = dateFormatter.date(from: expireDateString) else {
-            return nil
-        }
-        
-        let calendar = Calendar.current
-        let currentDate = Date()
-        
-        let components = calendar.dateComponents([.day], from: currentDate, to: targetDate)
-        guard let days = components.day else {
-            return nil
-        }
-        
-        return days
+        return dateFormatter.string(from: date)
     }
 }

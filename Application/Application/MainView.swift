@@ -14,6 +14,7 @@ struct MainView: View {
     @State private var showAddListView: Bool = false
     @State private var showItemStatusView: Bool = false
     @StateObject var addListModel = AddListViewModel()
+    @State private var isSheetShown = false
     
     var body: some View {
         GeometryReader { geometry in
@@ -47,19 +48,9 @@ struct MainView: View {
                         }
                     }
                     .frame(width: screenWidth, height: 90.0)
-                    .background(.white)
-
-//                        ForEach(0..<listitems.count, id:\.self) { index in
-//                            Button{
-//                                self.currentIndex = index
-//                                self.showItemStatusView.toggle()
-//                            } label: {
-//                                ItemRow(item: listitems[index])
-//                            }
-//                        }
-//                        .listRowInsets(EdgeInsets())
-//                        .listStyle(PlainListStyle())
+                    .background(.white)  
                     
+                    ZStack{
                     List{
                         ForEach(addListModel.savedEntities){ entity in
                             Button{
@@ -76,12 +67,28 @@ struct MainView: View {
                                                 .foregroundColor(Color.black)
                                             Text("\(String(describing: entity.expiredDate))")
                                                 .foregroundColor(Color.black)
-                                        }
-                                        Spacer()
+                                    }
+                                    Spacer()
+                                    ZStack {
+                                        Color.white
+                                        Text("\(entity.quantity)")
+                                            .foregroundColor(Color.black)
+                                    }
+                                    .frame(width: 45.0, height: 45.0)
+                                    .cornerRadius(10.0)
+                                    
+                                    
+                                    } label: {
                                         ZStack {
                                             Color.white
-                                            Text("\(entity.quantity)")
-                                                .foregroundColor(Color.black)
+                                            Rectangle()
+                                                .frame(width: 38.0, height: 38.0)
+                                                .cornerRadius(7.0)
+                                                .foregroundColor(Color.defaultButton)
+                                            Rectangle()
+                                                .frame(width: 26.0, height: 3.75)
+                                                .foregroundColor(.white)
+                                            
                                         }
                                         .frame(width: 45.0, height: 45.0)
                                         .cornerRadius(10.0)
@@ -105,14 +112,14 @@ struct MainView: View {
                                             .cornerRadius(10.0)
                                             .shadow(radius: 10)
                                         }
-                                    }
-                                    .padding(/*@START_MENU_TOKEN@*/.all, 10.0/*@END_MENU_TOKEN@*/)
-                                    .frame(width: 345.0, height: 65.0)
-                                    .background(Color.rowBackground)
-                                    .cornerRadius(7.0)
                                 }
-                                .frame(width: 355.0, height: 75.0)
-                                .cornerRadius(10.0)
+                                .padding(/*@START_MENU_TOKEN@*/.all, 10.0/*@END_MENU_TOKEN@*/)
+                                .frame(width: 345.0, height: 65.0)
+                                .background(Color.rowBackground)
+                                .cornerRadius(7.0)
+                            }
+                            .frame(width: 355.0, height: 75.0)
+                            .cornerRadius(10.0)
                                 
                             }
                         }
@@ -125,6 +132,25 @@ struct MainView: View {
                     .background(LinearGradient(gradient: Gradient(colors: [Color.defaultBackground, Color.white]), startPoint: .top, endPoint: .bottom))
                     .frame(width: screenWidth)
                     .ignoresSafeArea()
+                    
+                    VStack {
+                        Spacer()
+                        HStack{
+                            Spacer()
+                            Button(action: {
+                                isSheetShown = true
+                            }) {
+                                Image(systemName: "magnifyingglass.circle")
+                                    .font(.system(size: 50))
+                                    .foregroundColor(.green)
+                                    .padding()
+                            }
+                            .sheet(isPresented: $isSheetShown) {
+                                RecipeSearchView()
+                            }
+                        }
+                    }
+                }
                 }
                 
             }

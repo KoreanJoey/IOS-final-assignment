@@ -13,7 +13,7 @@ struct MainView: View {
     
     @State private var showAddListView: Bool = false
     @State private var showItemStatusView: Bool = false
-    @StateObject var addListModel = AddListViewModel()
+    @StateObject var addListModel = addListViewModel()
     
     var body: some View {
         GeometryReader { geometry in

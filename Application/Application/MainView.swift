@@ -29,7 +29,7 @@ struct MainView: View {
                                 .foregroundColor(Color.titleBackground)
                                 .frame(width: 280.0, height: 35.0)
                                 .cornerRadius(7)
-                            Text("Today: \(DateModel.getTodayString()) \(currentIndex)")
+                            Text("Today: \(DateModel.getTodayString())")
                                 .foregroundColor(Color.black)
                                 .multilineTextAlignment(.center)
                         }
@@ -77,24 +77,7 @@ struct MainView: View {
                                     .frame(width: 45.0, height: 45.0)
                                     .cornerRadius(10.0)
                                     
-                                    
-                                    } label: {
-                                        ZStack {
-                                            Color.white
-                                            Rectangle()
-                                                .frame(width: 38.0, height: 38.0)
-                                                .cornerRadius(7.0)
-                                                .foregroundColor(Color.defaultButton)
-                                            Rectangle()
-                                                .frame(width: 26.0, height: 3.75)
-                                                .foregroundColor(.white)
-                                            
-                                        }
-                                        .frame(width: 45.0, height: 45.0)
-                                        .cornerRadius(10.0)
-                                        
                                         Button{
-                                            //Subtract Quentity
                                             addListModel.subtractQuantity(entity: entity)
                                         } label: {
                                             ZStack {

@@ -82,14 +82,14 @@ struct AddListView: View {
                                 .frame(width: 300, height: 40)
                                 .padding([.leading, .trailing], 10)
                                 .background(RoundedRectangle(cornerRadius: 10)
-                                    .fill(Color.green))
+                                .fill(Color("GrayColor")))
                     
                     VStack{DatePicker(selection: $newItemExpiredDate, in: dateRange, displayedComponents: .date){
                         Text("Expirary date")
                             .frame(width: 120, height: 40)
                     }
                     .background(RoundedRectangle(cornerRadius: 10)
-                    .fill(Color.green))
+                    .fill(Color("GrayColor")))
                     .padding()
                     }
                     
@@ -108,7 +108,7 @@ struct AddListView: View {
                                 .tint(.cyan)
                                 .padding([.leading, .trailing], 10)
                                 .background(RoundedRectangle(cornerRadius: 10)
-                                    .fill(Color.gray))
+                                .fill(Color("GrayColor")))
                                 Spacer()
                     
                     HStack{
@@ -133,6 +133,7 @@ struct AddListView: View {
                         .frame(width: 100, height: 50)
                         .background(RoundedRectangle(cornerRadius: 10)
                             .fill(Color.saveButton))
+                        .disabled(selectedImage == nil)
                         }
                 }
                 .padding(.top, 10.0)

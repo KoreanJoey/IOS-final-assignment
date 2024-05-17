@@ -54,17 +54,22 @@ struct AddListView: View {
                 .background(.white)
                 
                 VStack{
-                    if selectedImage != nil{
-                        Image(uiImage: selectedImage!)
-                            .resizable()
-                            .frame(width: 200, height: 200 )
                     }
                     Button{
                         isPickerShowing = true
                     }label: {
-                        Text("Select a Image")
-                           
-                    }
+                        ZStack{
+                            if selectedImage != nil{
+                                Image(uiImage: selectedImage!)
+                                    .resizable()
+                                    .frame(width: 200, height: 200 )
+                            } else {
+                                
+                            }
+                        }
+                        .frame(width: 80, height: 80)
+                        .background(.gray)
+                        .cornerRadius(12)
                 }
                 .sheet(isPresented: $isPickerShowing, onDismiss: nil) {
                     //image picker
@@ -105,28 +110,6 @@ struct AddListView: View {
                                     .fill(Color.green))
                                 Spacer()
                     
-                    Label("Notify me on...", systemImage: "")
-                        .multilineTextAlignment(.center)
-                        .font(.title)
-                        .background(RoundedRectangle(cornerRadius: 10)
-                            .fill(Color.green))
-                        .padding()
-                        
-                    HStack{
-                        Button("1 day before expire"){}
-                            .font(.title)
-                            .foregroundColor(.black)
-                            .background(RoundedRectangle(cornerRadius: 10)
-                                .fill(Color.teal))
-                        Button("4 days before expire"){}
-                            .font(.title)
-                            .foregroundColor(.black)
-                            .background(RoundedRectangle(cornerRadius: 10)
-                                .fill(Color.teal))
-                        
-                    }
-                    Spacer()
-                    
                     HStack{
                         Button("Back") {
                             self.showMainView.toggle()
@@ -150,21 +133,15 @@ struct AddListView: View {
                             .fill(Color.saveButton))
                         }
                 }
-                
                 .padding(.top, 10.0)
-                .background(LinearGradient(gradient: Gradient(colors: [Color.defaultBackground, Color.white]), startPoint: .top, endPoint: .bottom))
-                
             }
-            
+            .background(LinearGradient(gradient: Gradient(colors: [Color.defaultBackground, Color.white]), startPoint: .top, endPoint: .bottom))
         }
         .fullScreenCover(isPresented: $showMainView, content: {
                   MainView()
               })
         }
     }
-    
-    
-    
 }
 
 

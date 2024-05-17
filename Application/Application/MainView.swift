@@ -49,23 +49,16 @@ struct MainView: View {
                     .frame(width: screenWidth, height: 90.0)
                     .background(.white)
 
-                    List {
-                        ForEach(0..<listitems.count, id:\.self) { index in
-                            Button{
-                                self.currentIndex = index
-                                self.showItemStatusView.toggle()
-                            } label: {
-                                ItemRow(item: listitems[index])
-                            }
-                        }
-                        .listRowInsets(EdgeInsets())
-                        .listStyle(PlainListStyle())
-                    }
-                    .listRowSpacing(15)
-                    .scrollContentBackground(.hidden)
-                    .background(LinearGradient(gradient: Gradient(colors: [Color.defaultBackground, Color.white]), startPoint: .top, endPoint: .bottom))
-                    .frame(width: screenWidth)
-                    .ignoresSafeArea()
+//                        ForEach(0..<listitems.count, id:\.self) { index in
+//                            Button{
+//                                self.currentIndex = index
+//                                self.showItemStatusView.toggle()
+//                            } label: {
+//                                ItemRow(item: listitems[index])
+//                            }
+//                        }
+//                        .listRowInsets(EdgeInsets())
+//                        .listStyle(PlainListStyle())
                     
                     List{
                         ForEach(addListModel.savedEntities){ entity in
@@ -81,7 +74,7 @@ struct MainView: View {
                                         VStack {
                                             Text(entity.name ?? "No Name")
                                                 .foregroundColor(Color.black)
-                                            Text("Best before: \(String(describing: entity.expiredDate))")
+                                            Text("\(String(describing: entity.expiredDate))")
                                                 .foregroundColor(Color.black)
                                         }
                                         Spacer()
@@ -95,9 +88,7 @@ struct MainView: View {
                                         
                                         Button{
                                             //Subtract Quentity
-                                            if entity.quantity > 0 {
-                                                entity.quantity -= 1
-                                            }
+                                            addListModel.subtractQuantity(entity: entity)
                                         } label: {
                                             ZStack {
                                                 Color.white

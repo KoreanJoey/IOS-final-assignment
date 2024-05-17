@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ItemRow: View {
-    @State var item : ListItem
+    @State var item : Item
     
     var body: some View {
         

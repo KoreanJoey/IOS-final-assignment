@@ -1,17 +1,17 @@
 //
-//  ListItem.swift
+//  ItemModel.swift
 //  Application
 //
-//  Created by 조성하 on 28/4/2024.
+//  Created by Sunghyeok Jang on 17/5/2024.
 //
 
 import Foundation
 import SwiftUI
 
-struct ListItem: Codable, Hashable, Identifiable {
+struct Item: Codable, Hashable, Identifiable {
     var id = UUID()
     var name: String
-    var expiredDate: Date
+    var expireDate: Date
     var quantity: Int
     
     private var imageName: String

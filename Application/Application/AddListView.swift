@@ -11,14 +11,16 @@ import CoreData
 
 struct AddListView: View {
     @StateObject var addListModel = AddListViewModel()
-    @Environment(\.managedObjectContext) private var viewContext
-    @State private var newItemId = UUID()
-    @State private var newItemName: String = ""
-    @State private var newItemQuantity: String = ""
     @State private var newItemExpiredDate = Date()
     @State var showMainView: Bool = false
     @State var isPickerShowing = false
     @State var selectedImage: UIImage?
+    
+    @State private var items: [Item] = []
+    
+    @State var itemName: String
+    @State var expireDate: Date
+    @State var itemQuantity: String
     
     var dateRange: ClosedRange<Date> {
         let min = Calendar.current.date(byAdding: .year, value: -1, to: newItemExpiredDate)!
@@ -72,7 +74,7 @@ struct AddListView: View {
                 }
                 
                 VStack {
-                    TextField("Enter name of item here", text: $newItemName)
+                    TextField("Enter name of item here", text: $itemName)
                                 .frame(width: 300, height: 40)
                                 .padding([.leading, .trailing], 10)
                                 .background(RoundedRectangle(cornerRadius: 10)
@@ -91,42 +93,9 @@ struct AddListView: View {
                  
                     
                     
-                    TextField("Enter quentity of item here", text: $newItemQuantity)
-                        .keyboardType(.numberPad)
-                        .onReceive(Just(newItemQuantity)){ newValue in
-                            let filtered = newValue.filter {"0123456789".contains($0)}
-                                if filtered != newValue{
-                                    self.newItemQuantity = filtered
-                                }}
-                                .frame(width: 300, height: 40)
-                                .tint(.cyan)
-                                .padding([.leading, .trailing], 10)
-                                .background(RoundedRectangle(cornerRadius: 10)
-                                    .fill(Color.green))
-                                Spacer()
-                    
-                    Label("Notify me on...", systemImage: "")
-                        .multilineTextAlignment(.center)
-                        .font(.title)
-                        .background(RoundedRectangle(cornerRadius: 10)
-                            .fill(Color.green))
-                        .padding()
+                    TextField("Enter quentity of item here", text: $itemQuantity)
                         
-                    HStack{
-                        Button("1 day before expire"){}
-                            .font(.title)
-                            .foregroundColor(.black)
-                            .background(RoundedRectangle(cornerRadius: 10)
-                                .fill(Color.teal))
-                        Button("4 days before expire"){}
-                            .font(.title)
-                            .foregroundColor(.black)
-                            .background(RoundedRectangle(cornerRadius: 10)
-                                .fill(Color.teal))
                         
-                    }
-                    Spacer()
-                    
                     HStack{
                         Button("Back") {
                             self.showMainView.toggle()
@@ -138,11 +107,9 @@ struct AddListView: View {
                             .fill(Color.backButton))
                         
                         Button("Save"){
-                            let dataImage = selectedImage?.pngData()
-                            addListModel.addItem(name: newItemName, expiredDate: newItemExpiredDate, id: UUID(), quantity: Int32(newItemQuantity) ?? 0, image: dataImage!)
-                            newItemName = ""
-                            newItemQuantity = ""
+                            saveData()
                         }
+                        .disabled(true)
                         .font(.title)
                         .foregroundColor(.black)
                         .frame(width: 100, height: 50)
@@ -162,13 +129,28 @@ struct AddListView: View {
               })
         }
     }
+    func saveData() {
+        let newItem = Item(name: itemName, expireDate: expireDate, quantity: itemQuantity)
+        items.append(newItem)
+        
+        if let encoded = try? JSONEncoder().encode(items) {
+            UserDefaults.standard.set(encoded, forKey: "itemKey")
+        }
+    }
     
-    
-    
+    func loadPlayers() {
+        if let data = UserDefaults.standard.data(forKey: "playerKey") {
+            if let decoded = try? JSONDecoder().decode([Item].self, from: data) {
+                self.items = decoded
+                return
+            }
+        }
+        self.items = []
+    }
 }
 
 
 
 #Preview {
-    AddListView()
+    AddListView(itemName: "Apple",expireDate: Date(), quantity: 1)
 }

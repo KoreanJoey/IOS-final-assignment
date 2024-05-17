@@ -7,7 +7,7 @@
 
 import Foundation
 
-var listitems: [ListItem] = load("ListItemData.json")
+var listitems: [Item] = load("ListItemData.json")
 
 func load<T: Decodable>(_ filename: String) -> T {
     let data: Data
@@ -32,7 +32,7 @@ func load<T: Decodable>(_ filename: String) -> T {
 }
 
 //When user add item, then this method used to save item data into json file.
-func save(_ item : ListItem, filename: String) {
+func save(_ item : Item, filename: String) {
     var file: URL
     do {
         file = try FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true).appendingPathComponent(filename)

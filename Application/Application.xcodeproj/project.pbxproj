@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2802A87F2BF7547F00E23D84 /* ItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2802A87E2BF7547F00E23D84 /* ItemModel.swift */; };
 		28D57E8C2BF7306F00A6F4BB /* ListItemModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 28D57E8A2BF7306F00A6F4BB /* ListItemModel.xcdatamodeld */; };
 		28EFC96C2BF0B003003E5D8A /* DateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28EFC96B2BF0B003003E5D8A /* DateModel.swift */; };
 		29B95F022BF6E8DC007D6299 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29B95F012BF6E8DC007D6299 /* ImagePicker.swift */; };
@@ -24,12 +25,12 @@
 		54EA64BE2BDE0FD600812325 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54EA64BD2BDE0FD600812325 /* MainViewModel.swift */; };
 		54EA64C02BDE102F00812325 /* AddListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54EA64BF2BDE102F00812325 /* AddListView.swift */; };
 		54EA64C22BDE105B00812325 /* AddListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54EA64C12BDE105B00812325 /* AddListViewModel.swift */; };
-		54EA64C42BDE1E6F00812325 /* ListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54EA64C32BDE1E6F00812325 /* ListItem.swift */; };
 		54EA64C62BDE33E300812325 /* ModelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54EA64C52BDE33E300812325 /* ModelData.swift */; };
 		54EA64C82BDE374A00812325 /* ListItemData.json in Resources */ = {isa = PBXBuildFile; fileRef = 54EA64C72BDE374A00812325 /* ListItemData.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2802A87E2BF7547F00E23D84 /* ItemModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemModel.swift; sourceTree = "<group>"; };
 		28D57E8B2BF7306F00A6F4BB /* ListItemModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ListItemModel.xcdatamodel; sourceTree = "<group>"; };
 		28EFC96B2BF0B003003E5D8A /* DateModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateModel.swift; sourceTree = "<group>"; };
 		29B95F012BF6E8DC007D6299 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
@@ -47,7 +48,6 @@
 		54EA64BD2BDE0FD600812325 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		54EA64BF2BDE102F00812325 /* AddListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddListView.swift; sourceTree = "<group>"; };
 		54EA64C12BDE105B00812325 /* AddListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddListViewModel.swift; sourceTree = "<group>"; };
-		54EA64C32BDE1E6F00812325 /* ListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListItem.swift; sourceTree = "<group>"; };
 		54EA64C52BDE33E300812325 /* ModelData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelData.swift; sourceTree = "<group>"; };
 		54EA64C72BDE374A00812325 /* ListItemData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = ListItemData.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -130,9 +130,9 @@
 			isa = PBXGroup;
 			children = (
 				28EFC96B2BF0B003003E5D8A /* DateModel.swift */,
-				54EA64C32BDE1E6F00812325 /* ListItem.swift */,
 				54EA64C52BDE33E300812325 /* ModelData.swift */,
 				5450BD952BF1F72100DD38CE /* RecipeData.swift */,
+				2802A87E2BF7547F00E23D84 /* ItemModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -207,7 +207,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				54EA64C42BDE1E6F00812325 /* ListItem.swift in Sources */,
 				542E73B22BE9C902001BB72E /* RecipeManager.swift in Sources */,
 				54EA64C22BDE105B00812325 /* AddListViewModel.swift in Sources */,
 				541068312BE67DEB003FB50F /* ItemStatusView.swift in Sources */,
@@ -219,6 +218,7 @@
 				54EA64BE2BDE0FD600812325 /* MainViewModel.swift in Sources */,
 				28D57E8C2BF7306F00A6F4BB /* ListItemModel.xcdatamodeld in Sources */,
 				549423FC2BF639940078F153 /* RecipeSearchView.swift in Sources */,
+				2802A87F2BF7547F00E23D84 /* ItemModel.swift in Sources */,
 				54A5B6CE2BD5E21000B1F728 /* ApplicationApp.swift in Sources */,
 				54EA64BE2BDE0FD600812325 /* MainViewModel.swift in Sources */,
 				28EFC96C2BF0B003003E5D8A /* DateModel.swift in Sources */,

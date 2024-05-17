@@ -13,6 +13,7 @@ struct MainView: View {
   
     @State private var showAddListView: Bool = false
     @State private var showItemStatusView: Bool = false
+    @State private var isSheetShown = false
     
     var body: some View {
         GeometryReader { geometry in
@@ -48,23 +49,43 @@ struct MainView: View {
                     .frame(width: screenWidth, height: 90.0)
                     .background(.white)
 
-                    List {
-                        ForEach(0..<listitems.count, id:\.self) { index in
-                            Button{
-                                self.currentIndex = index
-                                self.showItemStatusView.toggle()
-                            } label: {
-                                ItemRow(item: listitems[index])
+                    ZStack {
+                        List {
+                            ForEach(0..<listitems.count, id:\.self) { index in
+                                Button{
+                                    self.currentIndex = index
+                                    self.showItemStatusView.toggle()
+                                } label: {
+                                    ItemRow(item: listitems[index])
+                                }
+                            }
+                            .listRowInsets(EdgeInsets())
+                            .listStyle(PlainListStyle())
+                        }
+                        .listRowSpacing(15)
+                        .scrollContentBackground(.hidden)
+                        .background(LinearGradient(gradient: Gradient(colors: [Color.defaultBackground, Color.white]), startPoint: .top, endPoint: .bottom))
+                        .frame(width: screenWidth)
+                    .ignoresSafeArea()
+                        
+                        VStack {
+                            Spacer()
+                            HStack{
+                                Spacer()
+                                Button(action: {
+                                    isSheetShown = true
+                                }) {
+                                    Image(systemName: "magnifyingglass.circle")
+                                        .font(.system(size: 50))
+                                        .foregroundColor(.green)
+                                        .padding()
+                                }
+                                .sheet(isPresented: $isSheetShown) {
+                                    RecipeSearchView()
+                                }
                             }
                         }
-                        .listRowInsets(EdgeInsets())
-                        .listStyle(PlainListStyle())
                     }
-                    .listRowSpacing(15)
-                    .scrollContentBackground(.hidden)
-                    .background(LinearGradient(gradient: Gradient(colors: [Color.defaultBackground, Color.white]), startPoint: .top, endPoint: .bottom))
-                    .frame(width: screenWidth)
-                    .ignoresSafeArea()
                 }
                 
             }

@@ -20,7 +20,7 @@ struct MainView: View {
             let screenWidth = geometry.size.width
             let screenHeight = geometry.size.height
             ZStack {
-                Color.gray
+                Color("GrayColor")
                 VStack {
                     HStack {
                         ZStack{

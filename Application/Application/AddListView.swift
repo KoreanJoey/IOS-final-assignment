@@ -32,7 +32,7 @@ struct AddListView: View {
             let screenWidth = geometry.size.width
             let screenHeight = geometry.size.height
         ZStack {
-            Color.gray
+            Color("GrayColor")
                 .ignoresSafeArea()
             VStack{
                 HStack {
@@ -58,14 +58,14 @@ struct AddListView: View {
                                 .frame(width: 300, height: 40)
                                 .padding([.leading, .trailing], 10)
                                 .background(RoundedRectangle(cornerRadius: 10)
-                                    .fill(Color.gray))
+                                    .fill(Color("GrayColor")))
                     
                     VStack{DatePicker(selection: $newItemExpiredDate, in: dateRange, displayedComponents: .date){
                         Text("Expirary date")
                             .frame(width: 120, height: 40)
                     }
                     .background(RoundedRectangle(cornerRadius: 10)
-                    .fill(Color.gray))
+                    .fill(Color("GrayColor")))
                     .padding()
                     }
                     
@@ -84,7 +84,7 @@ struct AddListView: View {
                                 .tint(.cyan)
                                 .padding([.leading, .trailing], 10)
                                 .background(RoundedRectangle(cornerRadius: 10)
-                                    .fill(Color.gray))
+                                    .fill(Color("GrayColor")))
                     
                     
                     if selectedImage != nil{

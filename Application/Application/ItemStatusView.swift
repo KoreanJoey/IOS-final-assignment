@@ -17,8 +17,8 @@ struct ItemStatusView: View {
             let screenWidth = geometry.size.width
             let screenHeight = geometry.size.height
             ZStack {
-                Color.gray
-                    .ignoresSafeArea()
+                Color.white
+                   .ignoresSafeArea()
                 VStack{
                     HStack {
                         ZStack{
@@ -37,17 +37,24 @@ struct ItemStatusView: View {
                     .frame(width: screenWidth, height: 90.0)
                     .background(.white)
                     
-                    ZStack {
-                        Text(item.name)
-                            .frame(width:300, height: 50)
-                            .background(RoundedRectangle(cornerRadius: 10).fill(Color.cyan))
+                    HStack{
+                        item.image
+                            .resizable()
+                            .frame(width: 150, height: 150)
+                            .cornerRadius(/*@START_MENU_TOKEN@*/10.0/*@END_MENU_TOKEN@*/)
+                        VStack{
+                            Text(item.name)
+                                .frame(width:150, height: 50)
+                                .background(RoundedRectangle(cornerRadius: 10).fill(Color.cyan))
+                            
+                            Text(item.expiredDate)
+                                .frame(width:150, height: 50)
+                                .background(RoundedRectangle(cornerRadius: 10).fill(Color.cyan))
+                            Text("\(item.quantity) left")
+                                .frame(width:150, height: 50)
+                                .background(RoundedRectangle(cornerRadius: 10).fill(Color.cyan))
+                        }
                     }
-                    Text(item.expiredDate)
-                        .frame(width:300, height: 50)
-                        .background(RoundedRectangle(cornerRadius: 10).fill(Color.cyan))
-                    Text("\(item.quantity) left")
-                        .frame(width:300, height: 50)
-                        .background(RoundedRectangle(cornerRadius: 10).fill(Color.cyan))
                     
                     Text("The food recipe list would be here")
                         .frame(width:300, height:400)

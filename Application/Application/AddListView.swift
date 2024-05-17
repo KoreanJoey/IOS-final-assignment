@@ -133,7 +133,7 @@ struct AddListView: View {
                         .frame(width: 100, height: 50)
                         .background(RoundedRectangle(cornerRadius: 10)
                             .fill(Color.saveButton))
-                        .disabled(selectedImage == nil)
+                        .disabled(selectedImage == nil || newItemName.isEmpty || newItemQuantity.isEmpty)
                         }
                 }
                 .padding(.top, 10.0)

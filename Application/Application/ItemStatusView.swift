@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ItemStatusView: View {
+    @State private var index: Int = 0
     var item : ListItem
     
     @State private var showMainView: Bool = false

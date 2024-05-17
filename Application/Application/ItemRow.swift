@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ItemRow: View {
-    var item : ListItem
+    @State var item : ListItem
     
     var body: some View {
         
@@ -35,7 +35,11 @@ struct ItemRow: View {
                 .cornerRadius(10.0)
                 
                 Button{
-                    //Subtract Quentity
+                    
+//                    Subtract Quentity
+                    if self.item.quantity > 0 {
+                        self.item.quantity -= 1
+                    }
                 } label: {
                     ZStack {
                         Color.white
@@ -46,7 +50,7 @@ struct ItemRow: View {
                         Rectangle()
                             .frame(width: 26.0, height: 3.75)
                             .foregroundColor(.white)
-                            
+                        
                     }
                     .frame(width: 45.0, height: 45.0)
                     .cornerRadius(10.0)
@@ -58,15 +62,9 @@ struct ItemRow: View {
             .background(Color.rowBackground)
             .cornerRadius(7.0)
         }
-            .frame(width: 355.0, height: 75.0)
-            .cornerRadius(10.0)
-            
-    }
-    
-    func expireDateColor() -> Color {
-        if(true) {
-            return .red
-        }
+        .frame(width: 355.0, height: 75.0)
+        .cornerRadius(10.0)
+        
     }
 }
 

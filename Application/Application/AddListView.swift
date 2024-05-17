@@ -11,7 +11,6 @@ import CoreData
 
 struct AddListView: View {
     @StateObject var addListModel = AddListViewModel()
-    @Environment(\.managedObjectContext) private var viewContext
     @State private var newItemId = UUID()
     @State private var newItemName: String = ""
     @State private var newItemQuantity: String = ""
@@ -138,10 +137,6 @@ struct AddListView: View {
                             .fill(Color.backButton))
                         
                         Button("Save"){
-                            let dataImage = selectedImage?.pngData()
-                            addListModel.addItem(name: newItemName, expiredDate: newItemExpiredDate, id: UUID(), quantity: Int32(newItemQuantity) ?? 0, image: dataImage!)
-                            newItemName = ""
-                            newItemQuantity = ""
                         }
                         .font(.title)
                         .foregroundColor(.black)

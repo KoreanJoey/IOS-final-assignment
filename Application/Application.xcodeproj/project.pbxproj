@@ -7,10 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		28D57E8C2BF7306F00A6F4BB /* ListItemModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 28D57E8A2BF7306F00A6F4BB /* ListItemModel.xcdatamodeld */; };
 		28EFC96C2BF0B003003E5D8A /* DateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28EFC96B2BF0B003003E5D8A /* DateModel.swift */; };
 		29B95F022BF6E8DC007D6299 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29B95F012BF6E8DC007D6299 /* ImagePicker.swift */; };
 		541068312BE67DEB003FB50F /* ItemStatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541068302BE67DEB003FB50F /* ItemStatusView.swift */; };
+		541278612BF776EA001F26F2 /* ListItemModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5412785F2BF776EA001F26F2 /* ListItemModel.xcdatamodeld */; };
 		542E73B22BE9C902001BB72E /* RecipeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 542E73B12BE9C902001BB72E /* RecipeManager.swift */; };
 		5450BD962BF1F72100DD38CE /* RecipeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5450BD952BF1F72100DD38CE /* RecipeData.swift */; };
 		5450BD992BF212AE00DD38CE /* (null) in Sources */ = {isa = PBXBuildFile; };
@@ -30,10 +30,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		28D57E8B2BF7306F00A6F4BB /* ListItemModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ListItemModel.xcdatamodel; sourceTree = "<group>"; };
 		28EFC96B2BF0B003003E5D8A /* DateModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateModel.swift; sourceTree = "<group>"; };
 		29B95F012BF6E8DC007D6299 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		541068302BE67DEB003FB50F /* ItemStatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemStatusView.swift; sourceTree = "<group>"; };
+		541278602BF776EA001F26F2 /* ListItemModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ListItemModel.xcdatamodel; sourceTree = "<group>"; };
 		542E73B12BE9C902001BB72E /* RecipeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeManager.swift; sourceTree = "<group>"; };
 		5450BD952BF1F72100DD38CE /* RecipeData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeData.swift; sourceTree = "<group>"; };
 		549423F52BF5CDDD0078F153 /* APITestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APITestView.swift; sourceTree = "<group>"; };
@@ -66,7 +66,7 @@
 		2981B01C2BF5C90B0064A2AC /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
-				28D57E8A2BF7306F00A6F4BB /* ListItemModel.xcdatamodeld */,
+				5412785F2BF776EA001F26F2 /* ListItemModel.xcdatamodeld */,
 			);
 			path = CoreData;
 			sourceTree = "<group>";
@@ -217,7 +217,7 @@
 				5450BD992BF212AE00DD38CE /* (null) in Sources */,
 				549423F82BF5E8890078F153 /* URLImageView.swift in Sources */,
 				54EA64BE2BDE0FD600812325 /* MainViewModel.swift in Sources */,
-				28D57E8C2BF7306F00A6F4BB /* ListItemModel.xcdatamodeld in Sources */,
+				541278612BF776EA001F26F2 /* ListItemModel.xcdatamodeld in Sources */,
 				549423FC2BF639940078F153 /* RecipeSearchView.swift in Sources */,
 				54A5B6CE2BD5E21000B1F728 /* ApplicationApp.swift in Sources */,
 				54EA64BE2BDE0FD600812325 /* MainViewModel.swift in Sources */,
@@ -432,14 +432,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		28D57E8A2BF7306F00A6F4BB /* ListItemModel.xcdatamodeld */ = {
+		5412785F2BF776EA001F26F2 /* ListItemModel.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				28D57E8B2BF7306F00A6F4BB /* ListItemModel.xcdatamodel */,
+				541278602BF776EA001F26F2 /* ListItemModel.xcdatamodel */,
 			);
-			currentVersion = 28D57E8B2BF7306F00A6F4BB /* ListItemModel.xcdatamodel */;
+			currentVersion = 541278602BF776EA001F26F2 /* ListItemModel.xcdatamodel */;
 			name = ListItemModel.xcdatamodeld;
-			path = "/Users/13396508/Documents/GitHub/IOS-final-assignment/Application/Application/CoreData/ListItemModel.xcdatamodeld";
+			path = "/Users/dolha4166/Documents/GitHub/IOS-final-assignment/Application/Application/CoreData/ListItemModel.xcdatamodeld";
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

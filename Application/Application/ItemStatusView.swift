@@ -17,8 +17,13 @@ struct ItemStatusView: View {
             let screenWidth = geometry.size.width
             let screenHeight = geometry.size.height
             ZStack {
+<<<<<<< HEAD
                 Color.white
                    .ignoresSafeArea()
+=======
+                Color.gray
+                    .ignoresSafeArea()
+>>>>>>> main
                 VStack{
                     HStack {
                         ZStack{
@@ -37,6 +42,7 @@ struct ItemStatusView: View {
                     .frame(width: screenWidth, height: 90.0)
                     .background(.white)
                     
+<<<<<<< HEAD
                     HStack{
                         item.image
                             .resizable()
@@ -55,6 +61,19 @@ struct ItemStatusView: View {
                                 .background(RoundedRectangle(cornerRadius: 10).fill(Color.cyan))
                         }
                     }
+=======
+                    ZStack {
+                        Text(item.name)
+                            .frame(width:300, height: 50)
+                            .background(RoundedRectangle(cornerRadius: 10).fill(Color.cyan))
+                    }
+                    Text(item.expiredDate)
+                        .frame(width:300, height: 50)
+                        .background(RoundedRectangle(cornerRadius: 10).fill(Color.cyan))
+                    Text("\(item.quantity) left")
+                        .frame(width:300, height: 50)
+                        .background(RoundedRectangle(cornerRadius: 10).fill(Color.cyan))
+>>>>>>> main
                     
                     Text("The food recipe list would be here")
                         .frame(width:300, height:400)

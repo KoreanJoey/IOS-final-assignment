@@ -13,7 +13,10 @@ struct MainView: View {
   
     @State private var showAddListView: Bool = false
     @State private var showItemStatusView: Bool = false
+<<<<<<< HEAD
     @StateObject var addListModel = AddListViewModel()
+=======
+>>>>>>> main
     @State private var isSheetShown = false
     
     var body: some View {
@@ -22,8 +25,8 @@ struct MainView: View {
             let screenHeight = geometry.size.height
             ZStack {
                 Color.gray
-                VStack() {
-                    HStack() {
+                VStack {
+                    HStack {
                         ZStack{
                             Rectangle()
                                 .foregroundColor(Color.titleBackground)
@@ -49,6 +52,7 @@ struct MainView: View {
                     }
                     .frame(width: screenWidth, height: 90.0)
                     .background(.white)
+<<<<<<< HEAD
                     
                     
                     ZStack{
@@ -109,12 +113,47 @@ struct MainView: View {
                             .frame(width: 355.0, height: 75.0)
                             .cornerRadius(10.0)
                                 
+=======
+
+                    ZStack {
+                        List {
+                            ForEach(0..<listitems.count, id:\.self) { index in
+                                Button{
+                                    self.currentIndex = index
+                                    self.showItemStatusView.toggle()
+                                } label: {
+                                    ItemRow(item: listitems[index])
+                                }
+                            }
+                            .listRowInsets(EdgeInsets())
+                            .listStyle(PlainListStyle())
+                        }
+                        .listRowSpacing(15)
+                        .scrollContentBackground(.hidden)
+                        .background(LinearGradient(gradient: Gradient(colors: [Color.defaultBackground, Color.white]), startPoint: .top, endPoint: .bottom))
+                        .frame(width: screenWidth)
+                    .ignoresSafeArea()
+                        
+                        VStack {
+                            Spacer()
+                            HStack{
+                                Spacer()
+                                Button(action: {
+                                    isSheetShown = true
+                                }) {
+                                    Image(systemName: "magnifyingglass.circle")
+                                        .font(.system(size: 50))
+                                        .foregroundColor(.green)
+                                        .padding()
+                                }
+                                .sheet(isPresented: $isSheetShown) {
+                                    RecipeSearchView()
+                                }
+>>>>>>> main
                             }
                         }
-                        .onDelete(perform: addListModel.deleteItem)
-                        .listRowInsets(EdgeInsets())
-                        .listStyle(PlainListStyle())
                     }
+<<<<<<< HEAD
                     .listRowSpacing(15)
                     .scrollContentBackground(.hidden)
                     .background(LinearGradient(gradient: Gradient(colors: [Color.defaultBackground, Color.white]), startPoint: .top, endPoint: .bottom))
@@ -139,6 +178,8 @@ struct MainView: View {
                         }
                     }
                 }
+=======
+>>>>>>> main
                 }
                 
             }

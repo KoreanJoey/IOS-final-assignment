@@ -11,7 +11,6 @@ import CoreData
 
 struct AddListView: View {
     @StateObject var addListModel = AddListViewModel()
-    @Environment(\.managedObjectContext) private var viewContext
     @State private var newItemId = UUID()
     @State private var newItemName: String = ""
     @State private var newItemQuantity: String = ""
@@ -52,38 +51,21 @@ struct AddListView: View {
                 }
                 .frame(width: screenWidth, height: 90.0)
                 .background(.white)
-                
-                VStack{
-                    if selectedImage != nil{
-                        Image(uiImage: selectedImage!)
-                            .resizable()
-                            .frame(width: 200, height: 200 )
-                    }
-                    Button{
-                        isPickerShowing = true
-                    }label: {
-                        Text("Select a Image")
-                           
-                    }
-                }
-                .sheet(isPresented: $isPickerShowing, onDismiss: nil) {
-                    //image picker
-                    ImagePicker(selectedImage: $selectedImage, isPickerShowing: $isPickerShowing)
-                }
+        
                 
                 VStack {
                     TextField("Enter name of item here", text: $newItemName)
                                 .frame(width: 300, height: 40)
                                 .padding([.leading, .trailing], 10)
                                 .background(RoundedRectangle(cornerRadius: 10)
-                                    .fill(Color.green))
+                                    .fill(Color.gray))
                     
                     VStack{DatePicker(selection: $newItemExpiredDate, in: dateRange, displayedComponents: .date){
                         Text("Expirary date")
                             .frame(width: 120, height: 40)
                     }
                     .background(RoundedRectangle(cornerRadius: 10)
-                    .fill(Color.green))
+                    .fill(Color.gray))
                     .padding()
                     }
                     
@@ -102,50 +84,45 @@ struct AddListView: View {
                                 .tint(.cyan)
                                 .padding([.leading, .trailing], 10)
                                 .background(RoundedRectangle(cornerRadius: 10)
-                                    .fill(Color.green))
-                                Spacer()
+                                    .fill(Color.gray))
                     
-                    Label("Notify me on...", systemImage: "")
-                        .multilineTextAlignment(.center)
-                        .font(.title)
-                        .background(RoundedRectangle(cornerRadius: 10)
-                            .fill(Color.green))
-                        .padding()
-                        
-                    HStack{
-                        Button("1 day before expire"){}
-                            .font(.title)
-                            .foregroundColor(.black)
-                            .background(RoundedRectangle(cornerRadius: 10)
-                                .fill(Color.teal))
-                        Button("4 days before expire"){}
-                            .font(.title)
-                            .foregroundColor(.black)
-                            .background(RoundedRectangle(cornerRadius: 10)
-                                .fill(Color.teal))
-                        
+                    
+                    if selectedImage != nil{
+                        Image(uiImage: selectedImage!)
+                            .resizable()
+                            .frame(width: 200, height: 200 )
                     }
-                    Spacer()
                     
+                    Button{
+                        isPickerShowing = true
+                    }
+                label: {
+                   
+                        Text("Select a Image")
+                    }
+                .sheet(isPresented: $isPickerShowing, onDismiss: nil) {
+                    //image picker
+                    ImagePicker(selectedImage: $selectedImage, isPickerShowing: $isPickerShowing)
+                }
+                
+                    
+                Spacer()
                     HStack{
                         Button("Back") {
                             self.showMainView.toggle()
                         }
                         .font(.title)
                         .foregroundColor(.black)
-                        .frame(width: 100, height: 50)
+                        .frame(width: 150, height: 50)
                         .background(RoundedRectangle(cornerRadius: 10)
                             .fill(Color.backButton))
                         
                         Button("Save"){
-                            let dataImage = selectedImage?.pngData()
-                            addListModel.addItem(name: newItemName, expiredDate: newItemExpiredDate, id: UUID(), quantity: Int32(newItemQuantity) ?? 0, image: dataImage!)
-                            newItemName = ""
-                            newItemQuantity = ""
+                            self.showMainView.toggle()
                         }
                         .font(.title)
                         .foregroundColor(.black)
-                        .frame(width: 100, height: 50)
+                        .frame(width: 150, height: 50)
                         .background(RoundedRectangle(cornerRadius: 10)
                             .fill(Color.saveButton))
                         }

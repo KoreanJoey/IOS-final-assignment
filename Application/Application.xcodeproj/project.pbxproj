@@ -63,6 +63,7 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+<<<<<<< HEAD
 		2981B01C2BF5C90B0064A2AC /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
@@ -71,6 +72,8 @@
 			path = CoreData;
 			sourceTree = "<group>";
 		};
+=======
+>>>>>>> main
 		54A5B6C12BD5E21000B1F728 = {
 			isa = PBXGroup;
 			children = (
@@ -103,7 +106,6 @@
 				549423F52BF5CDDD0078F153 /* APITestView.swift */,
 				549423FB2BF639940078F153 /* RecipeSearchView.swift */,
 				542E73B12BE9C902001BB72E /* RecipeManager.swift */,
-				2981B01C2BF5C90B0064A2AC /* CoreData */,
 				54EA64CA2BDE383700812325 /* Model */,
 				54EA64C92BDE37E600812325 /* Resources */,
 				549423F72BF5E8890078F153 /* URLImageView.swift */,
@@ -217,7 +219,10 @@
 				5450BD992BF212AE00DD38CE /* (null) in Sources */,
 				549423F82BF5E8890078F153 /* URLImageView.swift in Sources */,
 				54EA64BE2BDE0FD600812325 /* MainViewModel.swift in Sources */,
+<<<<<<< HEAD
 				541278612BF776EA001F26F2 /* ListItemModel.xcdatamodeld in Sources */,
+=======
+>>>>>>> main
 				549423FC2BF639940078F153 /* RecipeSearchView.swift in Sources */,
 				54A5B6CE2BD5E21000B1F728 /* ApplicationApp.swift in Sources */,
 				54EA64BE2BDE0FD600812325 /* MainViewModel.swift in Sources */,
@@ -430,6 +435,7 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+<<<<<<< HEAD
 
 /* Begin XCVersionGroup section */
 		5412785F2BF776EA001F26F2 /* ListItemModel.xcdatamodeld */ = {
@@ -444,6 +450,8 @@
 			versionGroupType = wrapper.xcdatamodel;
 		};
 /* End XCVersionGroup section */
+=======
+>>>>>>> main
 	};
 	rootObject = 54A5B6C22BD5E21000B1F728 /* Project object */;
 }

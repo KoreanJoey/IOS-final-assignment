@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		28D57E8C2BF7306F00A6F4BB /* ListItemModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 28D57E8A2BF7306F00A6F4BB /* ListItemModel.xcdatamodeld */; };
+		28D57E8E2BF74A7100A6F4BB /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28D57E8D2BF74A7100A6F4BB /* Item.swift */; };
 		28EFC96C2BF0B003003E5D8A /* DateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28EFC96B2BF0B003003E5D8A /* DateModel.swift */; };
 		29B95F022BF6E8DC007D6299 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29B95F012BF6E8DC007D6299 /* ImagePicker.swift */; };
 		541068312BE67DEB003FB50F /* ItemStatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541068302BE67DEB003FB50F /* ItemStatusView.swift */; };
@@ -31,6 +32,7 @@
 
 /* Begin PBXFileReference section */
 		28D57E8B2BF7306F00A6F4BB /* ListItemModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ListItemModel.xcdatamodel; sourceTree = "<group>"; };
+		28D57E8D2BF74A7100A6F4BB /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		28EFC96B2BF0B003003E5D8A /* DateModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateModel.swift; sourceTree = "<group>"; };
 		29B95F012BF6E8DC007D6299 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		541068302BE67DEB003FB50F /* ItemStatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemStatusView.swift; sourceTree = "<group>"; };
@@ -133,6 +135,7 @@
 				54EA64C32BDE1E6F00812325 /* ListItem.swift */,
 				54EA64C52BDE33E300812325 /* ModelData.swift */,
 				5450BD952BF1F72100DD38CE /* RecipeData.swift */,
+				28D57E8D2BF74A7100A6F4BB /* Item.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -211,6 +214,7 @@
 				542E73B22BE9C902001BB72E /* RecipeManager.swift in Sources */,
 				54EA64C22BDE105B00812325 /* AddListViewModel.swift in Sources */,
 				541068312BE67DEB003FB50F /* ItemStatusView.swift in Sources */,
+				28D57E8E2BF74A7100A6F4BB /* Item.swift in Sources */,
 				54EA64BC2BDE0FBD00812325 /* MainView.swift in Sources */,
 				549423F62BF5CDDD0078F153 /* APITestView.swift in Sources */,
 				54A5B6CE2BD5E21000B1F728 /* ApplicationApp.swift in Sources */,

@@ -48,24 +48,6 @@ struct MainView: View {
                     }
                     .frame(width: screenWidth, height: 90.0)
                     .background(.white)
-
-                    List {
-                        ForEach(0..<listitems.count, id:\.self) { index in
-                            Button{
-                                self.currentIndex = index
-                                self.showItemStatusView.toggle()
-                            } label: {
-                                ItemRow(item: listitems[index])
-                            }
-                        }
-                        .listRowInsets(EdgeInsets())
-                        .listStyle(PlainListStyle())
-                    }
-                    .listRowSpacing(15)
-                    .scrollContentBackground(.hidden)
-                    .background(LinearGradient(gradient: Gradient(colors: [Color.defaultBackground, Color.white]), startPoint: .top, endPoint: .bottom))
-                    .frame(width: screenWidth)
-                    .ignoresSafeArea()
                     
                     List{
                         ForEach(addListModel.savedEntities){ entity in
@@ -134,8 +116,18 @@ struct MainView: View {
                     .background(LinearGradient(gradient: Gradient(colors: [Color.defaultBackground, Color.white]), startPoint: .top, endPoint: .bottom))
                     .frame(width: screenWidth)
                     .ignoresSafeArea()
+                    
                 }
-                
+                Button {
+                    
+                } label: {
+                    ZStack{
+                        Color.black
+                        
+                    }
+                    .frame(width: 50.0, height: 50.0)
+                    .cornerRadius(40.0)
+                }
             }
             .fullScreenCover(isPresented: $showAddListView, content: {
                 AddListView()

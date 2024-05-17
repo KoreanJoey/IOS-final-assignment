@@ -10,6 +10,7 @@ import CoreData
 class AddListViewModel: ObservableObject{
     let container: NSPersistentContainer
     @Published var savedEntities: [ItemEntity] = []
+    
     init(){
         container = NSPersistentContainer(name: "ListItemModel")
         container.loadPersistentStores { (description, error) in
@@ -31,10 +32,10 @@ class AddListViewModel: ObservableObject{
     
     func addItem(name: String, expiredDate: Date, id: UUID, quantity: Int32, image: Data){
         let newItem = ItemEntity(context: container.viewContext)
+        newItem.id = id
         newItem.name = name
         newItem.expiredDate = expiredDate
         newItem.quantity = quantity
-        newItem.id = id
         newItem.image = image
         saveItem()
     }
